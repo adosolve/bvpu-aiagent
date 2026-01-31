@@ -17,17 +17,15 @@ import ProfileSettings from './pages/ProfileSettings.tsx';
 import ExamForms from './pages/ExamForms.tsx';
 import GradeCards from './pages/GradeCards.tsx';
 import Results from './pages/Results.tsx';
-import Redressal from './pages/Redressal.tsx';
 import PublishNotification from './pages/PublishNotification.tsx';
 import AdminExamForms from './pages/AdminExamForms.tsx';
 import AdminGradeCards from './pages/AdminGradeCards.tsx';
 import AdminResults from './pages/AdminResults.tsx';
-import AdminRedressal from './pages/AdminRedressal.tsx';
 import SuperAdminExamForms from './pages/SuperAdminExamForms.tsx';
 import SuperAdminGradeCards from './pages/SuperAdminGradeCards.tsx';
 import SuperAdminResults from './pages/SuperAdminResults.tsx';
-import SuperAdminRedressal from './pages/SuperAdminRedressal.tsx';
 import MVPStatus from './pages/MVPStatus.tsx';
+import ChatHistory from './pages/ChatHistory.tsx';
 import { UserRole } from './types.ts';
 
 type AppView = 'LOGIN' | 'FORGOT_PASSWORD' | 'DASHBOARD';
@@ -61,9 +59,10 @@ const App: React.FC = () => {
 
   const getPageTitle = (path: string) => {
     switch (path) {
-      case '/': return 'Dashboard Overview';
+      case '/': return 'IMED AI Agent';
       case '/exams': return role === UserRole.CANDIDATE ? 'Convocation & Degree Services' : 'Examination Management';
       case '/helpdesk': return 'Raise New Query';
+      case '/chat-history': return 'Chat History';
       case '/tickets': return role === UserRole.CANDIDATE ? 'My Query Tracking' : 'Query Management';
       case '/settings': return role === UserRole.SUPER_ADMIN ? 'System Settings & Personnel' : 'Profile & Account Settings';
       case '/profile': return 'My Profile & Settings';
@@ -99,7 +98,6 @@ const App: React.FC = () => {
       <div className="flex-1 flex flex-col min-w-0 transition-all duration-300" style={{ marginLeft: `${sidebarWidth}px` }}>
         <TopNav 
           currentRole={role}
-          onRoleChange={setRole}
           pageTitle={getPageTitle(currentPath)}
           onLogout={handleLogout}
           onOpenNotifications={() => setCurrentPath('/notifications')}
@@ -115,8 +113,6 @@ const App: React.FC = () => {
           </div>
         </main>
       </div>
-
-      <AIChatAssistant />
     </div>
   );
 
@@ -130,6 +126,7 @@ const App: React.FC = () => {
     if (currentPath === '/notifications') return <NotificationsPage role={role} />;
     if (currentPath === '/notifications/activity') return <NotificationsPage role={role} />;
     if (currentPath === '/notifications/publish' && (role === UserRole.ADMIN_CLERK || role === UserRole.SUPER_ADMIN)) return <PublishNotification role={role} />;
+    if (currentPath === '/chat-history') return <ChatHistory />;
     if (currentPath === '/profile') return <ProfileSettings role={role} />;
     if (currentPath === '/exams' && role === UserRole.CANDIDATE) return <ConvocationSupport />;
     if (currentPath === '/exams/forms' && role === UserRole.CANDIDATE) return <ExamForms />;
@@ -141,9 +138,6 @@ const App: React.FC = () => {
     if (currentPath === '/exams/results' && role === UserRole.CANDIDATE) return <Results />;
     if (currentPath === '/exams/results' && role === UserRole.ADMIN_CLERK) return <AdminResults />;
     if (currentPath === '/exams/results' && role === UserRole.SUPER_ADMIN) return <SuperAdminResults />;
-    if (currentPath === '/exams/redressal' && role === UserRole.CANDIDATE) return <Redressal />;
-    if (currentPath === '/exams/redressal' && role === UserRole.ADMIN_CLERK) return <AdminRedressal />;
-    if (currentPath === '/exams/redressal' && role === UserRole.SUPER_ADMIN) return <SuperAdminRedressal />;
     if (currentPath === '/helpdesk' && role === UserRole.CANDIDATE) return <RaiseQuery onBack={() => setCurrentPath('/')} />;
     if (currentPath === '/tickets' && role === UserRole.CANDIDATE) return <MyQueries onBack={() => setCurrentPath('/')} />;
     if (currentPath === '/tickets' && (role === UserRole.ADMIN_CLERK || role === UserRole.SUPER_ADMIN)) return <AdminDashboard />;
@@ -158,7 +152,7 @@ const App: React.FC = () => {
         <div className="w-16 h-16 bg-stone-50 rounded-2xl flex items-center justify-center text-stone-300 mb-4">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
         </div>
-        <h3 className="text-xl font-serif font-bold text-stone-800 mb-2">Module Under Construction</h3>
+        <h3 className="text-xl font-semibold text-stone-800 mb-2">Module Under Construction</h3>
         <p className="text-stone-500 text-sm max-w-xs mx-auto">This screen is part of a future implementation step.</p>
       </div>
     );

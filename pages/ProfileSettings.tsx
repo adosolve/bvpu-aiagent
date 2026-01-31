@@ -22,7 +22,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-2 duration-400">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-2">
-          <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Full Name</label>
+          <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Full Name</label>
           <input 
             type="text" 
             readOnly 
@@ -31,7 +31,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
           />
         </div>
         <div className="space-y-2">
-          <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">
+          <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">
             {role === UserRole.CANDIDATE ? 'PRN Number' : 'Employee ID'}
           </label>
           <input 
@@ -42,7 +42,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
           />
         </div>
         <div className="space-y-2">
-          <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Email Address</label>
+          <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Email Address</label>
           <input 
             type="email" 
             defaultValue={userData.email}
@@ -50,7 +50,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
           />
         </div>
         <div className="space-y-2">
-          <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Department</label>
+          <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Department</label>
           <input 
             type="text" 
             readOnly 
@@ -60,7 +60,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
         </div>
       </div>
       <div className="pt-4">
-        <button className="px-6 py-3 bg-[#5D4037] text-white text-[11px] font-bold rounded-xl hover:bg-[#4E342E] transition-all uppercase tracking-widest shadow-lg shadow-[#5D4037]/10">
+        <button className="px-6 py-3 bg-[#5D4037] text-white text-[11px] font-semibold rounded-xl hover:bg-[#4E342E] transition-all uppercase tracking-widest shadow-lg shadow-[#5D4037]/10">
           Save Changes
         </button>
       </div>
@@ -70,7 +70,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
   const renderSecurity = () => (
     <div className="max-w-md space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-400">
       <div className="space-y-2">
-        <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Current Password</label>
+        <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Current Password</label>
         <input 
           type="password" 
           placeholder="••••••••"
@@ -78,7 +78,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
         />
       </div>
       <div className="space-y-2">
-        <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">New Password</label>
+        <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">New Password</label>
         <input 
           type="password" 
           placeholder="Minimum 8 characters"
@@ -86,7 +86,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
         />
       </div>
       <div className="space-y-2">
-        <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Confirm New Password</label>
+        <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Confirm New Password</label>
         <input 
           type="password" 
           placeholder="Repeat new password"
@@ -94,7 +94,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
         />
       </div>
       <div className="pt-4">
-        <button className="w-full py-4 bg-[#5D4037] text-white text-[11px] font-bold rounded-xl hover:bg-[#4E342E] transition-all uppercase tracking-widest shadow-lg shadow-[#5D4037]/10">
+        <button className="w-full py-4 bg-[#5D4037] text-white text-[11px] font-semibold rounded-xl hover:bg-[#4E342E] transition-all uppercase tracking-widest shadow-lg shadow-[#5D4037]/10">
           Update Password
         </button>
       </div>
@@ -112,7 +112,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
         ].map((pref, i) => (
           <div key={i} className="flex items-center justify-between p-4 bg-stone-50 border border-stone-100 rounded-2xl">
             <div>
-              <h4 className="text-sm font-bold text-stone-800 mb-1">{pref.title}</h4>
+              <h4 className="text-sm font-semibold text-stone-800 mb-1">{pref.title}</h4>
               <p className="text-xs text-stone-400 font-medium">{pref.desc}</p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
@@ -129,7 +129,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
     <div className="max-w-5xl mx-auto space-y-8 animate-in fade-in duration-500">
       <header className="flex flex-col md:flex-row md:items-center gap-6">
         <div className="relative">
-          <div className="w-24 h-24 rounded-3xl bg-stone-100 border border-stone-200 flex items-center justify-center text-[#5D4037] text-4xl font-serif font-bold shadow-sm">
+          <div className="w-24 h-24 rounded-3xl bg-stone-100 border border-stone-200 flex items-center justify-center text-[#5D4037] text-4xl font-semibold shadow-sm">
             {userData.name.charAt(0)}
           </div>
           <button className="absolute -bottom-2 -right-2 w-8 h-8 bg-white border border-stone-200 rounded-full flex items-center justify-center text-stone-400 hover:text-[#5D4037] shadow-sm transition-all">
@@ -137,11 +137,11 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
           </button>
         </div>
         <div>
-          <h1 className="text-3xl font-serif font-bold text-stone-900 mb-1">{userData.name}</h1>
+          <h1 className="text-3xl font-semibold text-stone-900 mb-1">{userData.name}</h1>
           <div className="flex flex-wrap items-center gap-4">
-            <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em]">{role.replace('_', ' ')}</span>
+            <span className="text-[10px] font-semibold text-stone-400 uppercase tracking-[0.2em]">{role.replace('_', ' ')}</span>
             <span className="w-1 h-1 bg-stone-300 rounded-full"></span>
-            <span className="text-[10px] font-bold text-stone-400 uppercase tracking-[0.2em]">Member since {userData.joined}</span>
+            <span className="text-[10px] font-semibold text-stone-400 uppercase tracking-[0.2em]">Member since {userData.joined}</span>
           </div>
         </div>
       </header>
@@ -151,7 +151,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
         <nav className="w-full md:w-64 bg-stone-50/50 border-b md:border-b-0 md:border-r border-stone-100 p-6 space-y-2">
           <button 
             onClick={() => setActiveTab('profile')}
-            className={`w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-widest transition-all ${
+            className={`w-full text-left px-4 py-3 rounded-xl text-xs font-semibold uppercase tracking-widest transition-all ${
               activeTab === 'profile' ? 'bg-[#5D4037] text-white shadow-lg shadow-[#5D4037]/10' : 'text-stone-400 hover:bg-stone-100 hover:text-stone-600'
             }`}
           >
@@ -159,7 +159,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
           </button>
           <button 
             onClick={() => setActiveTab('security')}
-            className={`w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-widest transition-all ${
+            className={`w-full text-left px-4 py-3 rounded-xl text-xs font-semibold uppercase tracking-widest transition-all ${
               activeTab === 'security' ? 'bg-[#5D4037] text-white shadow-lg shadow-[#5D4037]/10' : 'text-stone-400 hover:bg-stone-100 hover:text-stone-600'
             }`}
           >
@@ -167,7 +167,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
           </button>
           <button 
             onClick={() => setActiveTab('notifications')}
-            className={`w-full text-left px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-widest transition-all ${
+            className={`w-full text-left px-4 py-3 rounded-xl text-xs font-semibold uppercase tracking-widest transition-all ${
               activeTab === 'notifications' ? 'bg-[#5D4037] text-white shadow-lg shadow-[#5D4037]/10' : 'text-stone-400 hover:bg-stone-100 hover:text-stone-600'
             }`}
           >

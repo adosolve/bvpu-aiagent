@@ -210,23 +210,23 @@ const Results: React.FC = () => {
   };
 
   const getGradeStyle = (grade: string) => {
-    if (grade === 'A+' || grade === 'A') return 'text-green-700 font-bold';
-    if (grade === 'B+' || grade === 'B') return 'text-blue-700 font-bold';
-    if (grade === 'C+' || grade === 'C') return 'text-amber-700 font-bold';
-    return 'text-stone-600 font-bold';
+    if (grade === 'A+' || grade === 'A') return 'text-green-700 font-semibold';
+    if (grade === 'B+' || grade === 'B') return 'text-blue-700 font-semibold';
+    if (grade === 'C+' || grade === 'C') return 'text-amber-700 font-semibold';
+    return 'text-stone-600 font-semibold';
   };
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       {/* Page Header */}
       <header>
-        <h1 className="text-4xl font-serif font-bold text-stone-900 leading-tight mb-2">Results</h1>
+        <h1 className="text-4xl font-semibold text-stone-900 leading-tight mb-2">Results</h1>
         <p className="text-stone-500 text-sm font-medium">View detailed examination results for each semester</p>
       </header>
 
       {/* Semester Selection */}
       <div className="bg-white border border-stone-200 rounded-3xl p-6 shadow-sm">
-        <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-3">
+        <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-3">
           Select Examination / Semester
         </label>
         <select
@@ -246,39 +246,39 @@ const Results: React.FC = () => {
       {/* Result Summary Card */}
       {selectedResult && (
         <div className="bg-white border border-stone-200 rounded-3xl p-6 shadow-sm animate-in fade-in duration-300">
-          <h3 className="text-lg font-bold text-stone-800 mb-6">Result Summary</h3>
+          <h3 className="text-lg font-semibold text-stone-800 mb-6">Result Summary</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             <div>
-              <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-2">
+              <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-2">
                 Semester
               </label>
-              <p className="text-sm font-bold text-stone-800">{selectedResult.semester}</p>
+              <p className="text-sm font-semibold text-stone-800">{selectedResult.semester}</p>
             </div>
             <div>
-              <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-2">
+              <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-2">
                 Academic Year
               </label>
               <p className="text-sm text-stone-600">{selectedResult.academicYear}</p>
             </div>
             <div>
-              <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-2">
+              <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-2">
                 Result Status
               </label>
-              <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${getResultStatusStyle(selectedResult.resultStatus)}`}>
+              <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider border ${getResultStatusStyle(selectedResult.resultStatus)}`}>
                 {selectedResult.resultStatus}
               </span>
             </div>
             <div>
-              <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-2">
+              <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-2">
                 SGPA
               </label>
-              <p className="text-2xl font-bold text-[#5D4037]">{selectedResult.sgpa}</p>
+              <p className="text-2xl font-semibold text-[#5D4037]">{selectedResult.sgpa}</p>
             </div>
             <div>
-              <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-2">
+              <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-2">
                 Total Credits
               </label>
-              <p className="text-sm font-bold text-stone-800">{selectedResult.totalCredits}</p>
+              <p className="text-sm font-semibold text-stone-800">{selectedResult.totalCredits}</p>
             </div>
           </div>
         </div>
@@ -288,27 +288,27 @@ const Results: React.FC = () => {
       {selectedResult && (
         <div className="bg-white border border-stone-200 rounded-3xl shadow-sm overflow-hidden animate-in fade-in duration-300 delay-200">
           <div className="p-6 border-b border-stone-100">
-            <h3 className="text-lg font-bold text-stone-800">Detailed Results</h3>
+            <h3 className="text-lg font-semibold text-stone-800">Detailed Results</h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-stone-50/50">
-                  <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Subject Code</th>
-                  <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Subject Name</th>
-                  <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest text-center">Credits</th>
-                  <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest text-center">INT</th>
-                  <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest text-center">EXT</th>
-                  <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest text-center">Total</th>
-                  <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest text-center">Grade</th>
-                  <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest text-center">Status</th>
+                  <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Subject Code</th>
+                  <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Subject Name</th>
+                  <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest text-center">Credits</th>
+                  <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest text-center">INT</th>
+                  <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest text-center">EXT</th>
+                  <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest text-center">Total</th>
+                  <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest text-center">Grade</th>
+                  <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest text-center">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-50">
                 {selectedResult.subjects.map((subject, index) => (
                   <tr key={index} className="hover:bg-stone-50/30 transition-colors">
                     <td className="px-6 py-4">
-                      <span className="text-sm font-mono font-bold text-stone-800">{subject.subjectCode}</span>
+                      <span className="text-sm font-mono font-semibold text-stone-800">{subject.subjectCode}</span>
                     </td>
                     <td className="px-6 py-4">
                       <span className="text-sm text-stone-800">{subject.subjectName}</span>
@@ -323,13 +323,13 @@ const Results: React.FC = () => {
                       <span className="text-sm text-stone-600">{subject.externalMarks}</span>
                     </td>
                     <td className="px-6 py-4 text-center">
-                      <span className="text-sm font-bold text-stone-800">{subject.total}</span>
+                      <span className="text-sm font-semibold text-stone-800">{subject.total}</span>
                     </td>
                     <td className="px-6 py-4 text-center">
                       <span className={`text-sm ${getGradeStyle(subject.grade)}`}>{subject.grade}</span>
                     </td>
                     <td className="px-6 py-4 text-center">
-                      <span className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${getResultStatusStyle(subject.resultStatus)}`}>
+                      <span className={`px-2 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider border ${getResultStatusStyle(subject.resultStatus)}`}>
                         {subject.resultStatus}
                       </span>
                     </td>
@@ -344,19 +344,19 @@ const Results: React.FC = () => {
       {/* Legend & Notes */}
       {selectedResult && (
         <div className="bg-stone-50 border border-stone-100 rounded-xl p-6 animate-in fade-in duration-300 delay-400">
-          <h4 className="text-sm font-bold text-stone-700 mb-3">Legend & Notes</h4>
+          <h4 className="text-sm font-semibold text-stone-700 mb-3">Legend & Notes</h4>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-stone-600">
             <div>
-              <span className="font-bold text-stone-700">INT</span> = Internal Assessment
+              <span className="font-semibold text-stone-700">INT</span> = Internal Assessment
             </div>
             <div>
-              <span className="font-bold text-stone-700">EXT</span> = End Term Examination
+              <span className="font-semibold text-stone-700">EXT</span> = End Term Examination
             </div>
             <div>
-              <span className="font-bold text-stone-700">PR</span> = Practical
+              <span className="font-semibold text-stone-700">PR</span> = Practical
             </div>
             <div>
-              <span className="font-bold text-stone-700">AB</span> = Absent
+              <span className="font-semibold text-stone-700">AB</span> = Absent
             </div>
           </div>
           <div className="mt-4 pt-4 border-t border-stone-200">
@@ -379,7 +379,7 @@ const Results: React.FC = () => {
               <line x1="10" y1="9" x2="8" y2="9"></line>
             </svg>
           </div>
-          <h3 className="text-xl font-serif font-bold text-stone-800 mb-2">Select a Semester</h3>
+          <h3 className="text-xl font-semibold text-stone-800 mb-2">Select a Semester</h3>
           <p className="text-stone-500 text-sm max-w-xs mx-auto">Choose an examination semester from the dropdown above to view your detailed results.</p>
         </div>
       )}

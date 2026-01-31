@@ -42,14 +42,14 @@ const AdminManagement: React.FC = () => {
     <div className="space-y-8 animate-in fade-in duration-500">
       <header className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 text-[10px] font-bold text-[#5D4037] uppercase tracking-[0.2em] mb-2">
+          <div className="flex items-center gap-2 text-[10px] font-semibold text-[#5D4037] uppercase tracking-[0.2em] mb-2">
             <span className="w-6 h-[2px] bg-[#5D4037]"></span>
             Identity & Access
           </div>
-          <h1 className="text-4xl font-serif font-bold text-stone-900 leading-tight">Admin Management</h1>
+          <h1 className="text-4xl font-semibold text-stone-900 leading-tight">Admin Management</h1>
           <p className="text-sm text-stone-500 mt-2 font-medium">Control staff access levels and monitor departmental distribution.</p>
         </div>
-        <button className="px-6 py-3 bg-[#5D4037] text-white text-xs font-bold rounded-xl hover:bg-[#4E342E] shadow-lg shadow-[#5D4037]/20 transition-all uppercase tracking-widest flex items-center gap-2">
+        <button className="px-6 py-3 bg-[#5D4037] text-white text-xs font-semibold rounded-xl hover:bg-[#4E342E] shadow-lg shadow-[#5D4037]/20 transition-all uppercase tracking-widest flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="17" y1="11" x2="23" y2="11"></line></svg>
           Add New Admin
         </button>
@@ -68,7 +68,7 @@ const AdminManagement: React.FC = () => {
           />
         </div>
         <div className="flex gap-2">
-           <select className="px-4 py-2 bg-stone-50 border border-stone-100 rounded-xl text-xs font-bold text-stone-500 outline-none cursor-pointer">
+           <select className="px-4 py-2 bg-stone-50 border border-stone-100 rounded-xl text-xs font-semibold text-stone-500 outline-none cursor-pointer">
              <option>All Departments</option>
              <option>Examination</option>
              <option>Registrar</option>
@@ -86,12 +86,12 @@ const AdminManagement: React.FC = () => {
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-stone-50/50">
-                <th className="px-8 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Administrator</th>
-                <th className="px-8 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Department</th>
-                <th className="px-8 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Workload</th>
-                <th className="px-8 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Status</th>
-                <th className="px-8 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Last Activity</th>
-                <th className="px-8 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest text-right">Actions</th>
+                <th className="px-8 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Administrator</th>
+                <th className="px-8 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Department</th>
+                <th className="px-8 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Workload</th>
+                <th className="px-8 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Status</th>
+                <th className="px-8 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Last Activity</th>
+                <th className="px-8 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-50">
@@ -99,11 +99,11 @@ const AdminManagement: React.FC = () => {
                 <tr key={member.id} className="group hover:bg-stone-50/30 transition-colors">
                   <td className="px-8 py-5">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 bg-stone-100 rounded-lg flex items-center justify-center text-[#5D4037] font-bold text-xs border border-stone-200 group-hover:bg-white transition-colors">
+                      <div className="w-9 h-9 bg-stone-100 rounded-lg flex items-center justify-center text-[#5D4037] font-semibold text-xs border border-stone-200 group-hover:bg-white transition-colors">
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-stone-800">{member.name}</div>
+                        <div className="text-sm font-semibold text-stone-800">{member.name}</div>
                         <div className="text-[10px] font-mono text-stone-400 uppercase tracking-tight">{member.id}</div>
                       </div>
                     </div>
@@ -115,7 +115,7 @@ const AdminManagement: React.FC = () => {
                   </td>
                   <td className="px-8 py-5">
                     <div className="flex items-center gap-3">
-                      <span className="text-xs font-bold text-stone-700">{member.workload}</span>
+                      <span className="text-xs font-semibold text-stone-700">{member.workload}</span>
                       <div className="w-12 h-1 bg-stone-100 rounded-full overflow-hidden">
                          <div 
                            className={`h-full ${member.workload > 30 ? 'bg-[#5D4037]' : 'bg-stone-300'}`} 
@@ -125,7 +125,7 @@ const AdminManagement: React.FC = () => {
                     </div>
                   </td>
                   <td className="px-8 py-5">
-                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${
+                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider border ${
                       member.status === 'Active' 
                         ? 'bg-green-50 text-green-700 border-green-100' 
                         : 'bg-stone-50 text-stone-400 border-stone-200'
@@ -174,19 +174,19 @@ const AdminManagement: React.FC = () => {
       {/* Workload Summary */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-[#FAF9F8] border border-[#5D4037]/10 p-6 rounded-2xl flex flex-col justify-center text-center">
-          <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-1">Average Workload</div>
-          <div className="text-3xl font-serif font-bold text-stone-800">24.5</div>
-          <p className="text-[10px] text-stone-400 mt-1 uppercase font-bold tracking-tighter">Tickets per Staff</p>
+          <div className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest mb-1">Average Workload</div>
+          <div className="text-3xl font-semibold text-stone-800">24.5</div>
+          <p className="text-[10px] text-stone-400 mt-1 uppercase font-semibold tracking-tighter">Tickets per Staff</p>
         </div>
         <div className="bg-[#FAF9F8] border border-[#5D4037]/10 p-6 rounded-2xl flex flex-col justify-center text-center">
-          <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-1">Peak Utilization</div>
-          <div className="text-3xl font-serif font-bold text-[#5D4037]">84%</div>
-          <p className="text-[10px] text-stone-400 mt-1 uppercase font-bold tracking-tighter">Examination Dept</p>
+          <div className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest mb-1">Peak Utilization</div>
+          <div className="text-3xl font-semibold text-[#5D4037]">84%</div>
+          <p className="text-[10px] text-stone-400 mt-1 uppercase font-semibold tracking-tighter">Examination Dept</p>
         </div>
         <div className="bg-[#FAF9F8] border border-[#5D4037]/10 p-6 rounded-2xl flex flex-col justify-center text-center">
-          <div className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-1">System Health</div>
-          <div className="text-3xl font-serif font-bold text-green-600">Stable</div>
-          <p className="text-[10px] text-stone-400 mt-1 uppercase font-bold tracking-tighter">All Nodes Online</p>
+          <div className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest mb-1">System Health</div>
+          <div className="text-3xl font-semibold text-green-600">Stable</div>
+          <p className="text-[10px] text-stone-400 mt-1 uppercase font-semibold tracking-tighter">All Nodes Online</p>
         </div>
       </div>
     </div>

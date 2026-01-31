@@ -30,7 +30,6 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
     'Exam Forms',
     'Results',
     'Grade Cards',
-    'Redressal',
     'General Notice'
   ];
 
@@ -161,7 +160,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
     return (
       <div className="space-y-8 animate-in fade-in duration-500">
         <header>
-          <h1 className="text-4xl font-serif font-bold text-stone-900 leading-tight mb-2">Publish Notification</h1>
+          <h1 className="text-4xl font-semibold text-stone-900 leading-tight mb-2">Publish Notification</h1>
           <p className="text-stone-500 text-sm font-medium">
             {isSuperAdmin ? 'Send university-wide and policy notifications' : 'Send department-level updates to students'}
           </p>
@@ -173,7 +172,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
             </svg>
           </div>
-          <h3 className="text-xl font-serif font-bold text-stone-900 mb-2">
+          <h3 className="text-xl font-semibold text-stone-900 mb-2">
             {formData.schedulingType === 'later' ? 'Notification Scheduled Successfully' : 'Notification Published Successfully'}
           </h3>
           <p className="text-stone-600 mb-6">
@@ -186,7 +185,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
             <div className="text-xs text-stone-500 mb-1">
               {formData.schedulingType === 'later' ? 'Scheduled' : 'Published'} Notification:
             </div>
-            <div className="text-sm font-bold text-stone-800">{formData.title}</div>
+            <div className="text-sm font-semibold text-stone-800">{formData.title}</div>
             {formData.pinToTop && (
               <div className="text-xs text-purple-600 mt-1">📌 Pinned to top</div>
             )}
@@ -200,7 +199,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
     <div className="space-y-8 animate-in fade-in duration-500">
       {/* Page Header */}
       <header>
-        <h1 className="text-4xl font-serif font-bold text-stone-900 leading-tight mb-2">Publish Notification</h1>
+        <h1 className="text-4xl font-semibold text-stone-900 leading-tight mb-2">Publish Notification</h1>
         <p className="text-stone-500 text-sm font-medium">
           {isSuperAdmin ? 'Send university-wide and policy notifications' : 'Send department-level updates to students'}
         </p>
@@ -209,7 +208,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
       {/* Publish Form */}
       <section className="bg-white border border-stone-200 rounded-3xl shadow-sm overflow-hidden">
         <div className="p-6 border-b border-stone-100">
-          <h3 className="text-lg font-bold text-stone-800">Create New Notification</h3>
+          <h3 className="text-lg font-semibold text-stone-800">Create New Notification</h3>
           <p className="text-stone-500 text-sm mt-1">
             {isSuperAdmin ? 'Compose and publish university-wide or targeted notifications' : 'Compose and publish examination-related updates'}
           </p>
@@ -218,7 +217,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
           <form onSubmit={handlePublish} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-3">
+                <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-3">
                   Notification Category *
                 </label>
                 <select
@@ -234,7 +233,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
                 </select>
               </div>
               <div>
-                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-3">
+                <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-3">
                   Priority Level
                 </label>
                 <select
@@ -251,7 +250,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
 
             {/* Target Audience */}
             <div>
-              <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-3">
+              <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-3">
                 Target Audience
               </label>
               {isSuperAdmin ? (
@@ -285,7 +284,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
                       {getTargetAudienceIcon('Students Only')}
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-stone-800">Students</div>
+                      <div className="text-sm font-semibold text-stone-800">Students</div>
                       <div className="text-xs text-stone-500">Department-level notification to all enrolled students</div>
                     </div>
                   </div>
@@ -294,7 +293,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
             </div>
 
             <div>
-              <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-3">
+              <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-3">
                 Notification Title *
               </label>
               <input
@@ -308,7 +307,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
             </div>
 
             <div>
-              <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-3">
+              <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-3">
                 Message Body *
               </label>
               <textarea
@@ -326,7 +325,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-3">
+                <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-3">
                   Reference Exam / Semester (Optional)
                 </label>
                 <select
@@ -341,7 +340,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
                 </select>
               </div>
               <div>
-                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-3">
+                <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-3">
                   Reference ID (Optional)
                 </label>
                 <input
@@ -359,7 +358,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
               <>
                 {/* Scheduling */}
                 <div>
-                  <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-3">
+                  <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-3">
                     Scheduling
                   </label>
                   <div className="space-y-4">
@@ -408,7 +407,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
 
                 {/* Pinning Options */}
                 <div>
-                  <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-3">
+                  <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-3">
                     Display Options
                   </label>
                   <div className="space-y-4">
@@ -440,7 +439,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
             {/* Preview Section */}
             {(formData.title || formData.messageBody) && (
               <div className="border-t border-stone-100 pt-6">
-                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block mb-3">
+                <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest block mb-3">
                   Preview
                 </label>
                 <div className="bg-stone-50 border border-stone-200 rounded-xl p-6">
@@ -457,16 +456,16 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
                         {formData.pinToTop && (
                           <span className="text-purple-600 text-sm">📌</span>
                         )}
-                        <h4 className="text-sm font-bold text-stone-800">
+                        <h4 className="text-sm font-semibold text-stone-800">
                           {formData.title || 'Notification Title'}
                         </h4>
-                        <span className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${
+                        <span className={`px-2 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider border ${
                           isSuperAdmin ? 'bg-purple-50 text-purple-700 border-purple-100' : 'bg-amber-50 text-amber-700 border-amber-100'
                         }`}>
                           {isSuperAdmin ? 'Super Admin' : 'Admin'}
                         </span>
                         {formData.priority !== 'Normal' && (
-                          <span className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${getPriorityStyle(formData.priority)}`}>
+                          <span className={`px-2 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider border ${getPriorityStyle(formData.priority)}`}>
                             {formData.priority}
                           </span>
                         )}
@@ -496,14 +495,14 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
               <button
                 type="button"
                 onClick={handleCancel}
-                className="flex-1 sm:flex-none px-6 py-3 border border-stone-200 text-stone-600 rounded-xl font-bold text-sm hover:bg-stone-50 transition-all"
+                className="flex-1 sm:flex-none px-6 py-3 border border-stone-200 text-stone-600 rounded-xl font-semibold text-sm hover:bg-stone-50 transition-all"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isPublishing || !formData.category || !formData.title || !formData.messageBody}
-                className="flex-1 px-8 py-3 bg-[#5D4037] text-white rounded-xl font-bold text-sm hover:bg-[#4E342E] transition-all disabled:bg-stone-300 disabled:cursor-not-allowed"
+                className="flex-1 px-8 py-3 bg-[#5D4037] text-white rounded-xl font-semibold text-sm hover:bg-[#4E342E] transition-all disabled:bg-stone-300 disabled:cursor-not-allowed"
               >
                 {isPublishing ? 'Publishing...' : (formData.schedulingType === 'later' ? 'Schedule Notification' : 'Publish Now')}
               </button>
@@ -521,7 +520,7 @@ const PublishNotification: React.FC<PublishNotificationProps> = ({ role = UserRo
             </svg>
           </div>
           <div>
-            <h4 className="text-sm font-bold text-blue-800 mb-2">Publishing Guidelines</h4>
+            <h4 className="text-sm font-semibold text-blue-800 mb-2">Publishing Guidelines</h4>
             <ul className="text-xs text-blue-700 space-y-1">
               {isSuperAdmin ? (
                 <>

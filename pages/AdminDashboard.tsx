@@ -57,11 +57,11 @@ const AdminDashboard: React.FC = () => {
     <div className="space-y-8 animate-in fade-in duration-500">
       {/* Top Header */}
       <header>
-        <div className="flex items-center gap-2 text-[10px] font-bold text-[#5D4037] mb-2 uppercase tracking-[0.2em]">
+        <div className="flex items-center gap-2 text-[10px] font-semibold text-[#5D4037] mb-2 uppercase tracking-[0.2em]">
           <span className="w-6 h-[2px] bg-[#5D4037]"></span>
           Staff Department Portal
         </div>
-        <h1 className="text-4xl font-serif font-bold text-stone-900 leading-tight">Clerk Operations</h1>
+        <h1 className="text-4xl font-semibold text-stone-900 leading-tight">Clerk Operations</h1>
       </header>
 
       {/* Metrics Cards */}
@@ -70,10 +70,10 @@ const AdminDashboard: React.FC = () => {
           <div key={i} className="bg-white border border-stone-200 p-6 rounded-2xl shadow-sm">
             <div className="flex justify-between items-start mb-4">
               <span className="text-xl">{stat.icon}</span>
-              <span className="text-xs font-bold text-stone-400 uppercase tracking-widest">Active</span>
+              <span className="text-xs font-semibold text-stone-400 uppercase tracking-widest">Active</span>
             </div>
-            <div className="text-3xl font-serif font-bold text-stone-800 mb-1">{stat.value}</div>
-            <p className="text-xs font-bold text-stone-500 uppercase tracking-wider">{stat.label}</p>
+            <div className="text-3xl font-semibold text-stone-800 mb-1">{stat.value}</div>
+            <p className="text-xs font-semibold text-stone-500 uppercase tracking-wider">{stat.label}</p>
           </div>
         ))}
       </div>
@@ -81,14 +81,14 @@ const AdminDashboard: React.FC = () => {
       {/* Query List Section */}
       <section className="bg-white border border-stone-200 rounded-3xl shadow-sm overflow-hidden">
         <div className="p-6 border-b border-stone-100 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <h3 className="text-sm font-bold text-stone-800 uppercase tracking-wider">Query Queue</h3>
+          <h3 className="text-sm font-semibold text-stone-800 uppercase tracking-wider">Query Queue</h3>
           
           <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
             {['All', 'Pending', 'In Review', 'On Hold', 'Resolved'].map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all whitespace-nowrap border ${
+                className={`px-4 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-widest transition-all whitespace-nowrap border ${
                   filter === f 
                     ? 'bg-[#5D4037] border-[#5D4037] text-white shadow-md shadow-[#5D4037]/20' 
                     : 'bg-white border-stone-200 text-stone-400 hover:border-stone-300'
@@ -104,18 +104,18 @@ const AdminDashboard: React.FC = () => {
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-stone-50/50">
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Student / PRN</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Category</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Received</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Status</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest text-right">Action</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Student / PRN</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Category</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Received</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Status</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest text-right">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-50">
               {filteredQueries.map((query) => (
                 <tr key={query.id} className="hover:bg-stone-50/30 transition-colors">
                   <td className="px-6 py-4">
-                    <div className="text-sm font-bold text-stone-800">{query.studentName}</div>
+                    <div className="text-sm font-semibold text-stone-800">{query.studentName}</div>
                     <div className="text-[10px] font-mono text-stone-400">{query.prn}</div>
                   </td>
                   <td className="px-6 py-4">
@@ -125,14 +125,14 @@ const AdminDashboard: React.FC = () => {
                     <span className="text-xs text-stone-400">{query.receivedAt}</span>
                   </td>
                   <td className="px-6 py-4">
-                    <span className={`px-2 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider border ${getStatusStyle(query.status)}`}>
+                    <span className={`px-2 py-1 rounded-full text-[9px] font-semibold uppercase tracking-wider border ${getStatusStyle(query.status)}`}>
                       {query.status}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-right">
                     <button 
                       onClick={() => setSelectedQuery(query)}
-                      className="text-[10px] font-bold text-[#5D4037] bg-[#5D4037]/5 px-4 py-2 rounded-lg hover:bg-[#5D4037] hover:text-white transition-all uppercase tracking-widest border border-[#5D4037]/10"
+                      className="text-[10px] font-semibold text-[#5D4037] bg-[#5D4037]/5 px-4 py-2 rounded-lg hover:bg-[#5D4037] hover:text-white transition-all uppercase tracking-widest border border-[#5D4037]/10"
                     >
                       Review
                     </button>

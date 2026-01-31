@@ -53,7 +53,7 @@ const LoginPage: React.FC<LoginProps> = ({ onLogin, onForgotPassword }) => {
               <div className="space-y-3">
                 {/* Role Selection Dropdown */}
                 <div>
-                  <label className="block text-[9px] font-bold text-stone-400 uppercase tracking-[0.2em] mb-2">Select Role</label>
+                  <label className="block text-[9px] font-semibold text-stone-400 uppercase tracking-[0.2em] mb-2">Select Role</label>
                   <div className="relative">
                     <select 
                       required
@@ -77,7 +77,7 @@ const LoginPage: React.FC<LoginProps> = ({ onLogin, onForgotPassword }) => {
 
                 {/* PRN/Email Input */}
                 <div>
-                  <label className="block text-[9px] font-bold text-stone-400 uppercase tracking-widest mb-2">
+                  <label className="block text-[9px] font-semibold text-stone-400 uppercase tracking-widest mb-2">
                     {role === UserRole.CANDIDATE ? 'PRN Number / Email' : 'Employee ID / Staff Email'}
                   </label>
                   <input
@@ -94,11 +94,11 @@ const LoginPage: React.FC<LoginProps> = ({ onLogin, onForgotPassword }) => {
                 {/* Password Input */}
                 <div>
                   <div className="flex justify-between mb-2">
-                    <label className="block text-[9px] font-bold text-stone-400 uppercase tracking-widest">Password</label>
+                    <label className="block text-[9px] font-semibold text-stone-400 uppercase tracking-widest">Password</label>
                     <button
                       type="button"
                       onClick={onForgotPassword}
-                      className="text-[9px] font-bold text-[#5D4037] hover:underline uppercase tracking-widest"
+                      className="text-[9px] font-semibold text-[#5D4037] hover:underline uppercase tracking-widest"
                     >
                       Recovery?
                     </button>
@@ -129,14 +129,14 @@ const LoginPage: React.FC<LoginProps> = ({ onLogin, onForgotPassword }) => {
 
               <button
                 type="submit"
-                className="w-full py-4 mt-6 bg-gradient-to-r from-[#5D4037] to-[#4E342E] text-white rounded-2xl font-bold text-sm uppercase tracking-[0.15em] shadow-2xl shadow-[#5D4037]/30 hover:shadow-[#5D4037]/40 hover:from-[#4E342E] hover:to-[#3E2723] transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 active:scale-[0.98]"
+                className="w-full py-4 mt-6 bg-gradient-to-r from-[#5D4037] to-[#4E342E] text-white rounded-2xl font-semibold text-sm uppercase tracking-[0.15em] shadow-2xl shadow-[#5D4037]/30 hover:shadow-[#5D4037]/40 hover:from-[#4E342E] hover:to-[#3E2723] transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 active:scale-[0.98]"
               >
                 Login to Dashboard
               </button>
             </form>
 
             <div className="px-6 pb-4 text-center">
-              <p className="text-[8px] text-stone-300/60 uppercase tracking-[0.3em] font-bold">
+              <p className="text-[8px] text-stone-300/60 uppercase tracking-[0.3em] font-semibold">
                 University Secure Gateway • Established 1924
               </p>
             </div>

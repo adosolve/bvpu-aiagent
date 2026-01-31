@@ -107,29 +107,29 @@ const SuperAdminResults: React.FC = () => {
     <div className="space-y-6 animate-in fade-in duration-500">
       {/* Page Header */}
       <header>
-        <h1 className="text-3xl font-serif font-bold text-stone-900 leading-tight mb-2">Results Overview</h1>
+        <h1 className="text-3xl font-semibold text-stone-900 leading-tight mb-2">Results Overview</h1>
         <p className="text-stone-500 text-sm">System-wide examination results monitoring and analytics</p>
       </header>
 
       {/* Overview Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div className="bg-white border border-stone-200 rounded-xl p-6 animate-in fade-in duration-300 delay-100">
-          <div className="text-3xl font-bold text-stone-800 mb-2">{totalBatches}</div>
+          <div className="text-3xl font-semibold text-stone-800 mb-2">{totalBatches}</div>
           <div className="text-sm font-medium text-stone-500">Total Result Batches</div>
           <div className="text-xs text-stone-400 mt-1">All Examinations</div>
         </div>
         <div className="bg-white border border-stone-200 rounded-xl p-6 animate-in fade-in duration-300 delay-200">
-          <div className="text-3xl font-bold text-green-700 mb-2">{publishedResults}</div>
+          <div className="text-3xl font-semibold text-green-700 mb-2">{publishedResults}</div>
           <div className="text-sm font-medium text-stone-500">Published Results</div>
           <div className="text-xs text-stone-400 mt-1">Available to Students</div>
         </div>
         <div className="bg-white border border-stone-200 rounded-xl p-6 animate-in fade-in duration-300 delay-300">
-          <div className="text-3xl font-bold text-amber-600 mb-2">{unpublishedResults + draftResults}</div>
+          <div className="text-3xl font-semibold text-amber-600 mb-2">{unpublishedResults + draftResults}</div>
           <div className="text-sm font-medium text-stone-500">Unpublished Results</div>
           <div className="text-xs text-stone-400 mt-1">Pending Release</div>
         </div>
         <div className="bg-white border border-stone-200 rounded-xl p-6 animate-in fade-in duration-300 delay-400">
-          <div className="text-3xl font-bold text-[#5D4037] mb-2">{totalStudents.toLocaleString()}</div>
+          <div className="text-3xl font-semibold text-[#5D4037] mb-2">{totalStudents.toLocaleString()}</div>
           <div className="text-sm font-medium text-stone-500">Total Students</div>
           <div className="text-xs text-stone-400 mt-1">Results Processed</div>
         </div>
@@ -138,28 +138,28 @@ const SuperAdminResults: React.FC = () => {
       {/* Result Batches Table */}
       <section className="bg-white border border-stone-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-500 delay-500">
         <div className="p-6 border-b border-stone-100">
-          <h3 className="text-lg font-bold text-stone-800">Result Batches</h3>
+          <h3 className="text-lg font-semibold text-stone-800">Result Batches</h3>
           <p className="text-stone-500 text-sm mt-1">Complete results processing and publication status</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-stone-50/50">
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Exam</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Semester</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Academic Year</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest text-center">Students</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest text-center">Pass %</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Status</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Published By</th>
-                <th className="px-6 py-4 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Published Date</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Exam</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Semester</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Academic Year</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest text-center">Students</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest text-center">Pass %</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Status</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Published By</th>
+                <th className="px-6 py-4 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Published Date</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-50">
               {resultBatches.map((batch) => (
                 <tr key={batch.id} className="hover:bg-stone-50/30 transition-colors">
                   <td className="px-6 py-5">
-                    <span className="text-sm font-bold text-stone-800">{batch.exam}</span>
+                    <span className="text-sm font-semibold text-stone-800">{batch.exam}</span>
                   </td>
                   <td className="px-6 py-5">
                     <span className="text-sm text-stone-600">{batch.semester}</span>
@@ -168,13 +168,13 @@ const SuperAdminResults: React.FC = () => {
                     <span className="text-sm text-stone-600 font-medium">{batch.academicYear}</span>
                   </td>
                   <td className="px-6 py-5 text-center">
-                    <span className="text-sm font-bold text-stone-800">{batch.totalStudents}</span>
+                    <span className="text-sm font-semibold text-stone-800">{batch.totalStudents}</span>
                   </td>
                   <td className="px-6 py-5 text-center">
-                    <span className="text-sm font-bold text-green-700">{batch.passPercentage}</span>
+                    <span className="text-sm font-semibold text-green-700">{batch.passPercentage}</span>
                   </td>
                   <td className="px-6 py-5">
-                    <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${getStatusStyle(batch.status)}`}>
+                    <span className={`px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider border ${getStatusStyle(batch.status)}`}>
                       {batch.status}
                     </span>
                   </td>
@@ -194,7 +194,7 @@ const SuperAdminResults: React.FC = () => {
       {/* Processing Timeline */}
       <section className="bg-white border border-stone-200 rounded-xl shadow-sm overflow-hidden animate-in fade-in duration-500 delay-300">
         <div className="p-6 border-b border-stone-100">
-          <h3 className="text-lg font-bold text-stone-800">Recent Processing Activity</h3>
+          <h3 className="text-lg font-semibold text-stone-800">Recent Processing Activity</h3>
           <p className="text-stone-500 text-sm mt-1">Latest result uploads and publications</p>
         </div>
         <div className="p-6">
@@ -206,7 +206,7 @@ const SuperAdminResults: React.FC = () => {
               .map((batch) => (
                 <div key={batch.id} className="flex items-center justify-between p-4 bg-stone-50 rounded-lg">
                   <div className="flex-1">
-                    <div className="text-sm font-bold text-stone-800">{batch.exam}</div>
+                    <div className="text-sm font-semibold text-stone-800">{batch.exam}</div>
                     <div className="text-xs text-stone-500 mt-1">
                       {batch.semester} • {batch.academicYear} • {batch.totalStudents} students • {batch.passPercentage} pass rate
                     </div>
@@ -224,23 +224,23 @@ const SuperAdminResults: React.FC = () => {
       {/* Performance Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="bg-white border border-stone-200 rounded-xl p-6">
-          <h4 className="text-sm font-bold text-stone-800 mb-3">Average Pass Rate</h4>
-          <div className="text-2xl font-bold text-green-700 mb-1">{averagePassPercentage}%</div>
+          <h4 className="text-sm font-semibold text-stone-800 mb-3">Average Pass Rate</h4>
+          <div className="text-2xl font-semibold text-green-700 mb-1">{averagePassPercentage}%</div>
           <div className="text-xs text-stone-500">Across all examinations</div>
         </div>
         <div className="bg-white border border-stone-200 rounded-xl p-6">
-          <h4 className="text-sm font-bold text-stone-800 mb-3">Publication Rate</h4>
-          <div className="text-2xl font-bold text-[#5D4037] mb-1">{Math.round((publishedResults / totalBatches) * 100)}%</div>
+          <h4 className="text-sm font-semibold text-stone-800 mb-3">Publication Rate</h4>
+          <div className="text-2xl font-semibold text-[#5D4037] mb-1">{Math.round((publishedResults / totalBatches) * 100)}%</div>
           <div className="text-xs text-stone-500">Results published</div>
         </div>
         <div className="bg-white border border-stone-200 rounded-xl p-6">
-          <h4 className="text-sm font-bold text-stone-800 mb-3">Processing Time</h4>
-          <div className="text-2xl font-bold text-stone-800 mb-1">3.2 days</div>
+          <h4 className="text-sm font-semibold text-stone-800 mb-3">Processing Time</h4>
+          <div className="text-2xl font-semibold text-stone-800 mb-1">3.2 days</div>
           <div className="text-xs text-stone-500">Average upload to publish</div>
         </div>
         <div className="bg-white border border-stone-200 rounded-xl p-6">
-          <h4 className="text-sm font-bold text-stone-800 mb-3">Peak Season</h4>
-          <div className="text-2xl font-bold text-stone-800 mb-1">Even Sem</div>
+          <h4 className="text-sm font-semibold text-stone-800 mb-3">Peak Season</h4>
+          <div className="text-2xl font-semibold text-stone-800 mb-1">Even Sem</div>
           <div className="text-xs text-stone-500">Highest result volume</div>
         </div>
       </div>

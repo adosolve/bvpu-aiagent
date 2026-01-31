@@ -58,7 +58,7 @@ const AIChatAssistant: React.FC = () => {
         ) : (
           <Icons.Message />
         )}
-        <span className="absolute right-16 bg-white text-[#5D4037] px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest shadow-sm border border-stone-100 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap hidden md:block">
+        <span className="absolute right-16 bg-white text-[#5D4037] px-3 py-1.5 rounded-lg text-[10px] font-semibold uppercase tracking-widest shadow-sm border border-stone-100 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap hidden md:block">
           AI Assistant
         </span>
       </button>
@@ -85,7 +85,7 @@ const AIChatAssistant: React.FC = () => {
             </div>
             <div>
               <img src="/Public/College Title.png" alt="College Title" className="h-5 w-auto object-contain opacity-90 mb-1" />
-              <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Autonomous Assistant</p>
+              <p className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Autonomous Assistant</p>
             </div>
           </div>
           <button 
@@ -113,7 +113,7 @@ const AIChatAssistant: React.FC = () => {
           {/* Quick Suggestions */}
           {messages.length < 5 && (
             <div className="pt-4 space-y-2">
-              <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-3">Suggested Inquiries</p>
+              <p className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest mb-3">Suggested Inquiries</p>
               <div className="flex flex-wrap gap-2">
                 {suggestions.map((s, i) => (
                   <button 
@@ -148,7 +148,7 @@ const AIChatAssistant: React.FC = () => {
           </form>
           <div className="mt-4 flex items-center justify-center gap-2 opacity-40">
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-            <span className="text-[9px] font-bold uppercase tracking-widest text-stone-500">Secure Academic Portal</span>
+            <span className="text-[9px] font-semibold uppercase tracking-widest text-stone-500">Secure Academic Portal</span>
           </div>
         </div>
       </aside>

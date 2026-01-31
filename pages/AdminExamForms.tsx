@@ -98,7 +98,7 @@ const AdminExamForms: React.FC = () => {
     <div className="space-y-6 animate-in fade-in duration-500">
       {/* Page Header */}
       <header>
-        <h1 className="text-3xl font-serif font-bold text-stone-900 leading-tight mb-2">Exam Forms Management</h1>
+        <h1 className="text-3xl font-semibold text-stone-900 leading-tight mb-2">Exam Forms Management</h1>
         <p className="text-stone-500 text-sm">Review and manage student examination applications</p>
       </header>
 
@@ -106,7 +106,7 @@ const AdminExamForms: React.FC = () => {
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         {(['Submitted', 'Under Review', 'Approved', 'Rejected', 'On Hold'] as const).map((status) => (
           <div key={status} className="bg-white border border-stone-200 rounded-xl p-4">
-            <div className="text-2xl font-bold text-stone-800">{getStatusCount(status)}</div>
+            <div className="text-2xl font-semibold text-stone-800">{getStatusCount(status)}</div>
             <div className="text-xs text-stone-500 font-medium">{status}</div>
           </div>
         ))}
@@ -115,19 +115,19 @@ const AdminExamForms: React.FC = () => {
       {/* Applications Table */}
       <section className="bg-white border border-stone-200 rounded-xl shadow-sm overflow-hidden">
         <div className="p-4 border-b border-stone-100">
-          <h3 className="text-lg font-bold text-stone-800">Exam Applications</h3>
+          <h3 className="text-lg font-semibold text-stone-800">Exam Applications</h3>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-stone-50/50">
-                <th className="px-4 py-3 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Application ID</th>
-                <th className="px-4 py-3 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Student Name / PRN</th>
-                <th className="px-4 py-3 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Exam Season</th>
-                <th className="px-4 py-3 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Semester</th>
-                <th className="px-4 py-3 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Submitted On</th>
-                <th className="px-4 py-3 text-[10px] font-bold text-stone-400 uppercase tracking-widest">Status</th>
-                <th className="px-4 py-3 text-[10px] font-bold text-stone-400 uppercase tracking-widest text-right">Actions</th>
+                <th className="px-4 py-3 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Application ID</th>
+                <th className="px-4 py-3 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Student Name / PRN</th>
+                <th className="px-4 py-3 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Exam Season</th>
+                <th className="px-4 py-3 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Semester</th>
+                <th className="px-4 py-3 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Submitted On</th>
+                <th className="px-4 py-3 text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Status</th>
+                <th className="px-4 py-3 text-[10px] font-semibold text-stone-400 uppercase tracking-widest text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-50">
@@ -138,7 +138,7 @@ const AdminExamForms: React.FC = () => {
                   </td>
                   <td className="px-4 py-4">
                     <div>
-                      <div className="text-sm font-bold text-stone-800">{app.studentName}</div>
+                      <div className="text-sm font-semibold text-stone-800">{app.studentName}</div>
                       <div className="text-xs text-stone-500 font-mono">{app.prn}</div>
                     </div>
                   </td>
@@ -152,7 +152,7 @@ const AdminExamForms: React.FC = () => {
                     <span className="text-sm text-stone-600">{app.submittedOn}</span>
                   </td>
                   <td className="px-4 py-4">
-                    <span className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${getStatusStyle(app.status)}`}>
+                    <span className={`px-2 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider border ${getStatusStyle(app.status)}`}>
                       {app.status}
                     </span>
                   </td>
@@ -160,7 +160,7 @@ const AdminExamForms: React.FC = () => {
                     <div className="flex items-center justify-end gap-2">
                       <button 
                         onClick={() => handleViewApplication(app)}
-                        className="text-[10px] font-bold text-stone-500 hover:text-[#5D4037] uppercase tracking-widest transition-colors"
+                        className="text-[10px] font-semibold text-stone-500 hover:text-[#5D4037] uppercase tracking-widest transition-colors"
                       >
                         View
                       </button>
@@ -168,19 +168,19 @@ const AdminExamForms: React.FC = () => {
                         <>
                           <button 
                             onClick={() => handleStatusUpdate(app.id, 'Approved')}
-                            className="text-[10px] font-bold text-green-600 hover:text-green-700 uppercase tracking-widest transition-colors"
+                            className="text-[10px] font-semibold text-green-600 hover:text-green-700 uppercase tracking-widest transition-colors"
                           >
                             Approve
                           </button>
                           <button 
                             onClick={() => handleStatusUpdate(app.id, 'Rejected')}
-                            className="text-[10px] font-bold text-red-600 hover:text-red-700 uppercase tracking-widest transition-colors"
+                            className="text-[10px] font-semibold text-red-600 hover:text-red-700 uppercase tracking-widest transition-colors"
                           >
                             Reject
                           </button>
                           <button 
                             onClick={() => handleStatusUpdate(app.id, 'On Hold')}
-                            className="text-[10px] font-bold text-purple-600 hover:text-purple-700 uppercase tracking-widest transition-colors"
+                            className="text-[10px] font-semibold text-purple-600 hover:text-purple-700 uppercase tracking-widest transition-colors"
                           >
                             Hold
                           </button>
@@ -200,41 +200,41 @@ const AdminExamForms: React.FC = () => {
         <div className="fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-6 animate-in fade-in duration-300">
           <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-in zoom-in-95 duration-300">
             <div className="p-6 border-b border-stone-100">
-              <h3 className="text-xl font-serif font-bold text-stone-900">Application Details</h3>
+              <h3 className="text-xl font-semibold text-stone-900">Application Details</h3>
               <p className="text-stone-500 text-sm mt-1">{selectedApplication.applicationId}</p>
             </div>
             <div className="p-6 space-y-6">
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Student Name</label>
-                  <p className="text-sm font-bold text-stone-800 mt-1">{selectedApplication.studentName}</p>
+                  <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Student Name</label>
+                  <p className="text-sm font-semibold text-stone-800 mt-1">{selectedApplication.studentName}</p>
                 </div>
                 <div>
-                  <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">PRN</label>
+                  <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">PRN</label>
                   <p className="text-sm font-mono text-stone-600 mt-1">{selectedApplication.prn}</p>
                 </div>
                 <div>
-                  <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Exam Season</label>
+                  <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Exam Season</label>
                   <p className="text-sm text-stone-600 mt-1">{selectedApplication.examSeason}</p>
                 </div>
                 <div>
-                  <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Semester</label>
+                  <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Semester</label>
                   <p className="text-sm text-stone-600 mt-1">{selectedApplication.semester}</p>
                 </div>
                 <div>
-                  <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Submitted On</label>
+                  <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Submitted On</label>
                   <p className="text-sm text-stone-600 mt-1">{selectedApplication.submittedOn}</p>
                 </div>
                 <div>
-                  <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Current Status</label>
-                  <span className={`inline-block px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border mt-1 ${getStatusStyle(selectedApplication.status)}`}>
+                  <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Current Status</label>
+                  <span className={`inline-block px-2 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider border mt-1 ${getStatusStyle(selectedApplication.status)}`}>
                     {selectedApplication.status}
                   </span>
                 </div>
               </div>
               
               <div>
-                <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">Subjects Applied For</label>
+                <label className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest">Subjects Applied For</label>
                 <div className="mt-2 space-y-2">
                   <div className="p-3 bg-stone-50 rounded-lg">
                     <div className="text-sm font-medium text-stone-800">All Enrolled Subjects</div>
@@ -246,7 +246,7 @@ const AdminExamForms: React.FC = () => {
             <div className="p-6 border-t border-stone-100 flex gap-3">
               <button 
                 onClick={() => setShowModal(false)}
-                className="flex-1 py-3 px-4 border border-stone-200 text-stone-600 rounded-lg font-bold text-sm hover:bg-stone-50 transition-all"
+                className="flex-1 py-3 px-4 border border-stone-200 text-stone-600 rounded-lg font-semibold text-sm hover:bg-stone-50 transition-all"
               >
                 Close
               </button>
@@ -257,7 +257,7 @@ const AdminExamForms: React.FC = () => {
                       handleStatusUpdate(selectedApplication.id, 'Approved');
                       setShowModal(false);
                     }}
-                    className="py-3 px-4 bg-green-600 text-white rounded-lg font-bold text-sm hover:bg-green-700 transition-all"
+                    className="py-3 px-4 bg-green-600 text-white rounded-lg font-semibold text-sm hover:bg-green-700 transition-all"
                   >
                     Approve
                   </button>
@@ -266,7 +266,7 @@ const AdminExamForms: React.FC = () => {
                       handleStatusUpdate(selectedApplication.id, 'Rejected');
                       setShowModal(false);
                     }}
-                    className="py-3 px-4 bg-red-600 text-white rounded-lg font-bold text-sm hover:bg-red-700 transition-all"
+                    className="py-3 px-4 bg-red-600 text-white rounded-lg font-semibold text-sm hover:bg-red-700 transition-all"
                   >
                     Reject
                   </button>

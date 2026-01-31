@@ -34,15 +34,15 @@ const ConvocationSupport: React.FC = () => {
     <div className="animate-in fade-in duration-500 space-y-8 pb-12">
       <header className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 text-[10px] font-bold text-[#5D4037] uppercase tracking-[0.2em] mb-2">
+          <div className="flex items-center gap-2 text-[10px] font-semibold text-[#5D4037] uppercase tracking-[0.2em] mb-2">
             <span className="w-6 h-[2px] bg-[#5D4037]"></span>
             Graduation Services
           </div>
-          <h1 className="text-4xl font-serif font-bold text-stone-900 leading-tight">Convocation & Degree</h1>
+          <h1 className="text-4xl font-semibold text-stone-900 leading-tight">Convocation & Degree</h1>
         </div>
         <div className="flex items-center gap-3 bg-green-50 border border-green-100 px-4 py-2 rounded-2xl">
           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-          <span className="text-xs font-bold text-green-700 uppercase tracking-widest">Eligibility: Confirmed</span>
+          <span className="text-xs font-semibold text-green-700 uppercase tracking-widest">Eligibility: Confirmed</span>
         </div>
       </header>
 
@@ -55,15 +55,15 @@ const ConvocationSupport: React.FC = () => {
                <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
             </div>
             
-            <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-6">Ceremony Schedule</h3>
+            <h3 className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-6">Ceremony Schedule</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-stone-50 rounded-xl flex items-center justify-center text-[#5D4037] border border-stone-100">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-stone-400 uppercase tracking-wider">Date & Time</p>
-                  <p className="text-lg font-serif font-bold text-stone-800">December 14, 2024</p>
+                  <p className="text-[10px] font-semibold text-stone-400 uppercase tracking-wider">Date & Time</p>
+                  <p className="text-lg font-semibold text-stone-800">December 14, 2024</p>
                   <p className="text-xs text-stone-500 font-medium">09:00 AM IST Onwards</p>
                 </div>
               </div>
@@ -72,8 +72,8 @@ const ConvocationSupport: React.FC = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-stone-400 uppercase tracking-wider">Venue</p>
-                  <p className="text-lg font-serif font-bold text-stone-800">Main University Auditorium</p>
+                  <p className="text-[10px] font-semibold text-stone-400 uppercase tracking-wider">Venue</p>
+                  <p className="text-lg font-semibold text-stone-800">Main University Auditorium</p>
                   <p className="text-xs text-stone-500 font-medium">South Campus, Building A</p>
                 </div>
               </div>
@@ -82,23 +82,23 @@ const ConvocationSupport: React.FC = () => {
 
           {/* Application Checklist */}
           <section className="bg-white border border-stone-200 rounded-3xl p-8 shadow-sm">
-            <h3 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-6">Application Progress</h3>
+            <h3 className="text-xs font-semibold text-stone-400 uppercase tracking-widest mb-6">Application Progress</h3>
             <div className="space-y-4">
               {steps.map((step, i) => (
                 <div key={i} className="flex items-center justify-between p-4 rounded-2xl border border-stone-50 bg-stone-50/30">
                   <div className="flex items-center gap-4">
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold border ${
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-semibold border ${
                       step.status === 'Completed' ? 'bg-[#5D4037] text-white border-[#5D4037]' : 'bg-white text-stone-300 border-stone-200'
                     }`}>
                       {step.status === 'Completed' ? '✓' : i + 1}
                     </div>
-                    <span className={`text-sm font-bold ${step.status === 'Locked' ? 'text-stone-300' : 'text-stone-700'}`}>
+                    <span className={`text-sm font-semibold ${step.status === 'Locked' ? 'text-stone-300' : 'text-stone-700'}`}>
                       {step.title}
                     </span>
                   </div>
                   <div className="flex items-center gap-4">
-                    <span className="text-[10px] text-stone-400 font-mono font-bold">{step.date}</span>
-                    <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded-md border ${
+                    <span className="text-[10px] text-stone-400 font-mono font-semibold">{step.date}</span>
+                    <span className={`text-[10px] font-semibold uppercase tracking-widest px-2 py-1 rounded-md border ${
                       step.status === 'Completed' ? 'text-green-600 bg-green-50 border-green-100' : 
                       step.status === 'Pending' ? 'text-amber-600 bg-amber-50 border-amber-100' : 
                       'text-stone-300 bg-stone-50 border-stone-100'
@@ -118,11 +118,11 @@ const ConvocationSupport: React.FC = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
               </div>
               <div>
-                <h4 className="text-sm font-bold text-stone-800">Certificate Collection</h4>
+                <h4 className="text-sm font-semibold text-stone-800">Certificate Collection</h4>
                 <p className="text-xs text-stone-500 leading-relaxed max-w-sm">Degrees will be available for collection from the Registrar's Office 48 hours after the ceremony.</p>
               </div>
             </div>
-            <button className="px-6 py-2.5 bg-white border border-[#5D4037]/20 text-[#5D4037] text-xs font-bold rounded-xl hover:bg-[#5D4037] hover:text-white transition-all shadow-sm">
+            <button className="px-6 py-2.5 bg-white border border-[#5D4037]/20 text-[#5D4037] text-xs font-semibold rounded-xl hover:bg-[#5D4037] hover:text-white transition-all shadow-sm">
               Collection Policy
             </button>
           </section>
@@ -137,8 +137,8 @@ const ConvocationSupport: React.FC = () => {
                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 2a10 10 0 1 1-10 10h10V2z"></path></svg>
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-stone-800">Convocation AI</h3>
-                  <p className="text-[10px] text-green-600 font-bold uppercase tracking-widest">Online Assistant</p>
+                  <h3 className="text-sm font-semibold text-stone-800">Convocation AI</h3>
+                  <p className="text-[10px] text-green-600 font-semibold uppercase tracking-widest">Online Assistant</p>
                 </div>
               </div>
             </div>
@@ -174,14 +174,14 @@ const ConvocationSupport: React.FC = () => {
                 </button>
               </form>
               <div className="flex gap-2 mt-3 overflow-x-auto pb-2 scrollbar-hide">
-                <button onClick={() => setChatInput("What is the gown fee?")} className="whitespace-nowrap px-3 py-1 bg-stone-50 border border-stone-100 rounded-full text-[10px] font-bold text-stone-400 hover:text-[#5D4037] transition-colors">Gown Fee?</button>
-                <button onClick={() => setChatInput("Name correction help")} className="whitespace-nowrap px-3 py-1 bg-stone-50 border border-stone-100 rounded-full text-[10px] font-bold text-stone-400 hover:text-[#5D4037] transition-colors">Name correction</button>
+                <button onClick={() => setChatInput("What is the gown fee?")} className="whitespace-nowrap px-3 py-1 bg-stone-50 border border-stone-100 rounded-full text-[10px] font-semibold text-stone-400 hover:text-[#5D4037] transition-colors">Gown Fee?</button>
+                <button onClick={() => setChatInput("Name correction help")} className="whitespace-nowrap px-3 py-1 bg-stone-50 border border-stone-100 rounded-full text-[10px] font-semibold text-stone-400 hover:text-[#5D4037] transition-colors">Name correction</button>
               </div>
             </div>
           </div>
 
           <div className="bg-white border border-stone-200 rounded-3xl p-6 shadow-sm">
-             <h4 className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-4">Required Documents</h4>
+             <h4 className="text-[10px] font-semibold text-stone-400 uppercase tracking-widest mb-4">Required Documents</h4>
              <ul className="space-y-3">
                <li className="flex items-center gap-3 text-[11px] text-stone-600">
                  <div className="w-1.5 h-1.5 bg-[#5D4037] rounded-full"></div>
