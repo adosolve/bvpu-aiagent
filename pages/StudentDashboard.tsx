@@ -169,7 +169,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onNavigate }) => {
           <div className="max-w-2xl mx-auto text-center space-y-8">
             {/* Welcome Message */}
             <div className="space-y-2">
-              <h1 className="text-4xl font-medium text-stone-800">Hello! Welcome to IMED AI Agent</h1>
+              <h1 className="text-4xl font-medium text-stone-800">Hello! Welcome to IMED AI Campus</h1>
               <p className="text-lg text-stone-600 font-medium">An OS Built for Students to solve admin query or paper work issue!</p>
             </div>
 
@@ -212,18 +212,19 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onNavigate }) => {
                 </div>
               )}
 
-              <div className="relative bg-white border border-stone-200 rounded-3xl shadow-sm hover:shadow-md transition-all">
+              {/* Chat Input Area */}
+              <div className="flex items-center gap-3 bg-white border border-stone-200 rounded-3xl shadow-sm hover:shadow-md transition-all p-2">
                 <textarea
                   ref={inputRef}
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask IMED AI Agent"
-                  className="w-full p-6 pr-24 border-0 rounded-3xl resize-none focus:outline-none text-base leading-relaxed min-h-[4rem] max-h-32 bg-transparent"
+                  placeholder="Ask IMED AI Campus"
+                  className="flex-1 px-4 py-3 border-0 rounded-2xl resize-none focus:outline-none text-base leading-relaxed min-h-[3rem] max-h-32 bg-transparent"
                   rows={1}
                   style={{ 
                     height: 'auto',
-                    minHeight: '4rem'
+                    minHeight: '3rem'
                   }}
                   onInput={(e) => {
                     const target = e.target as HTMLTextAreaElement;
@@ -242,10 +243,10 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onNavigate }) => {
                   className="hidden"
                 />
                 
-                {/* Attachment button */}
+                {/* Attachment button - outside input */}
                 <button
                   onClick={() => fileInputRef.current?.click()}
-                  className="absolute right-16 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-stone-100 hover:bg-stone-200 text-stone-600 rounded-full flex items-center justify-center transition-all"
+                  className="w-10 h-10 bg-stone-100 hover:bg-stone-200 text-stone-600 rounded-full flex items-center justify-center transition-all flex-shrink-0"
                   title="Attach files"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -253,11 +254,11 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onNavigate }) => {
                   </svg>
                 </button>
                 
-                {/* Send button */}
+                {/* Send button - outside input */}
                 <button
                   onClick={handleSendMessage}
                   disabled={!inputMessage.trim() && attachedFiles.length === 0 || isTyping}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-[#5D4037] hover:bg-[#4E342E] disabled:bg-stone-300 text-white rounded-full flex items-center justify-center transition-all"
+                  className="w-10 h-10 bg-[#5D4037] hover:bg-[#4E342E] disabled:bg-stone-300 text-white rounded-full flex items-center justify-center transition-all flex-shrink-0"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -437,7 +438,7 @@ const StudentDashboard: React.FC<StudentDashboardProps> = ({ onNavigate }) => {
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder="Ask IMED AI Agent"
+                  placeholder="Ask IMED AI Campus"
                   className="w-full p-6 pr-24 border-0 rounded-3xl resize-none focus:outline-none text-base leading-relaxed min-h-[4rem] max-h-32 bg-transparent"
                   rows={1}
                   style={{ 

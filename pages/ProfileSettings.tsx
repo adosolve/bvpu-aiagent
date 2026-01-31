@@ -107,7 +107,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({ role }) => {
         {[
           { title: 'Email Notifications', desc: 'Receive ticket updates and system alerts via email.' },
           { title: 'Push Notifications', desc: 'Get real-time alerts in your browser when a status changes.' },
-          { title: 'AI Assistant Insights', desc: 'Allow AI to send proactive suggestions based on your queries.' },
+          { title: 'AI Campus Insights', desc: 'Allow AI to send proactive suggestions based on your queries.' },
           { title: 'Marketing & Events', desc: 'University announcements and convocation event updates.' },
         ].map((pref, i) => (
           <div key={i} className="flex items-center justify-between p-4 bg-stone-50 border border-stone-100 rounded-2xl">

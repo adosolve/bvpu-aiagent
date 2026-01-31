@@ -5,7 +5,7 @@ import { Icons } from '../constants';
 const AIChatAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ role: 'ai' | 'user'; text: string }[]>([
-    { role: 'ai', text: 'Good day. I am the College AI Assistant. How may I assist you with your academic inquiries or examination queries today?' }
+    { role: 'ai', text: 'Good day. I am the College AI Campus. How may I assist you with your academic inquiries or examination queries today?' }
   ]);
   const [input, setInput] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -24,6 +24,9 @@ const AIChatAssistant: React.FC = () => {
     setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
     setInput('');
 
+    // Show typing indicator
+    setMessages(prev => [...prev, { role: 'ai', text: '...' }]);
+
     // Academic Tone Mock Responses
     setTimeout(() => {
       let response = "I have received your inquiry. Please allow me to analyze the relevant institutional policies to provide an accurate response.";
@@ -34,16 +37,23 @@ const AIChatAssistant: React.FC = () => {
         response = "To provide a precise update on your query status, please refer to the 'Query Tracking' section where real-time administrative logs are maintained.";
       } else if (userMsg.toLowerCase().includes('help') || userMsg.toLowerCase().includes('how')) {
         response = "I am equipped to guide you through raising formal requests for marksheet corrections, duplicate certificate applications, and academic re-evaluations.";
+      } else if (userMsg.toLowerCase().includes('exam') || userMsg.toLowerCase().includes('result')) {
+        response = "For examination-related inquiries, I can assist with result verification, grade card downloads, and examination form submissions. Please specify your particular requirement.";
+      } else if (userMsg.toLowerCase().includes('fee') || userMsg.toLowerCase().includes('payment')) {
+        response = "Regarding fee payments, you may access the online payment portal through the 'Financial Services' section. All transactions are processed securely through our institutional gateway.";
       }
 
-      setMessages(prev => [...prev, { role: 'ai', text: response }]);
-    }, 800);
+      // Remove typing indicator and add actual response
+      setMessages(prev => prev.slice(0, -1).concat([{ role: 'ai', text: response }]));
+    }, 1200);
   };
 
   const suggestions = [
     "Check Convocation Dates",
     "Track my pending tickets",
-    "How to correct my name?"
+    "How to correct my name?",
+    "Download grade card",
+    "Exam form submission help"
   ];
 
   return (
@@ -59,7 +69,7 @@ const AIChatAssistant: React.FC = () => {
           <Icons.Message />
         )}
         <span className="absolute right-16 bg-white text-[#5D4037] px-3 py-1.5 rounded-lg text-[10px] font-semibold uppercase tracking-widest shadow-sm border border-stone-100 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap hidden md:block">
-          AI Assistant
+          AI Campus
         </span>
       </button>
 
@@ -105,7 +115,15 @@ const AIChatAssistant: React.FC = () => {
                   ? 'bg-[#5D4037] text-white rounded-tr-none' 
                   : 'bg-white text-stone-700 border border-stone-100 rounded-tl-none font-medium'
               }`}>
-                {msg.text}
+                {msg.text === '...' ? (
+                  <div className="flex items-center gap-1">
+                    <div className="w-2 h-2 bg-stone-400 rounded-full animate-bounce"></div>
+                    <div className="w-2 h-2 bg-stone-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-stone-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  </div>
+                ) : (
+                  msg.text
+                )}
               </div>
             </div>
           ))}
@@ -131,21 +149,36 @@ const AIChatAssistant: React.FC = () => {
 
         {/* Input Area */}
         <div className="p-6 border-t border-stone-100 bg-white">
-          <form onSubmit={handleSend} className="relative">
+          <div className="flex items-center gap-3">
             <input 
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Inquire about policies, status, or help..."
-              className="w-full pl-4 pr-12 py-4 bg-stone-50 border border-stone-200 rounded-xl text-sm focus:bg-white focus:border-[#5D4037] focus:ring-1 focus:ring-[#5D4037] outline-none transition-all placeholder:text-stone-400"
+              className="flex-1 px-4 py-4 bg-stone-50 border border-stone-200 rounded-xl text-sm focus:bg-white focus:border-[#5D4037] focus:ring-1 focus:ring-[#5D4037] outline-none transition-all placeholder:text-stone-400"
+              maxLength={500}
             />
+            
+            {/* Attachment button - outside input */}
             <button 
-              type="submit"
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-[#5D4037] text-white rounded-lg transition-all flex items-center justify-center hover:bg-[#4E342E] shadow-sm active:scale-95"
+              type="button"
+              className="w-10 h-10 bg-stone-100 hover:bg-stone-200 text-stone-600 rounded-lg transition-all flex items-center justify-center flex-shrink-0"
+              title="Attach files"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66L9.64 16.2a2 2 0 0 1-2.83-2.83l8.49-8.49"></path>
+              </svg>
+            </button>
+            
+            {/* Send button - outside input */}
+            <button 
+              onClick={handleSend}
+              disabled={!input.trim()}
+              className="w-10 h-10 bg-[#5D4037] text-white rounded-lg transition-all flex items-center justify-center hover:bg-[#4E342E] shadow-sm active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#5D4037] flex-shrink-0"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
             </button>
-          </form>
+          </div>
           <div className="mt-4 flex items-center justify-center gap-2 opacity-40">
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
             <span className="text-[9px] font-semibold uppercase tracking-widest text-stone-500">Secure Academic Portal</span>

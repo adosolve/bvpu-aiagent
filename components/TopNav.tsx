@@ -66,7 +66,7 @@ const TopNav: React.FC<TopNavProps> = ({
                 {currentRole === UserRole.CANDIDATE ? 'John Harvard' : 'Elena Gilbert'}
               </div>
               <div className="text-[9px] text-stone-400 font-semibold uppercase tracking-widest">
-                ID: {currentRole === UserRole.CANDIDATE ? '20240012' : 'ADM-102'}
+                {currentRole === UserRole.CANDIDATE ? 'PNR:' : 'ID:'} {currentRole === UserRole.CANDIDATE ? '20240012' : 'ADM-102'}
               </div>
             </div>
             <div className="w-9 h-9 rounded-xl bg-[#5D4037]/5 flex items-center justify-center text-[#5D4037] border border-[#5D4037]/10 overflow-hidden text-xs font-semibold shadow-inner">

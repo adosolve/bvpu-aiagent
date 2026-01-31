@@ -185,7 +185,7 @@ const ChatHistory: React.FC = () => {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Chat History</h1>
-            <p className="text-gray-600 mt-1">Review your previous conversations with AI Assistant</p>
+            <p className="text-gray-600 mt-1">Review your previous conversations with AI Campus</p>
           </div>
           <button
             onClick={handleNewChat}
@@ -250,7 +250,7 @@ const ChatHistory: React.FC = () => {
               </div>
               <h3 className="text-lg font-medium text-gray-900 mb-2">No chat history found</h3>
               <p className="text-gray-500 mb-4">
-                {searchTerm ? 'Try adjusting your search terms' : 'Start a conversation with AI Assistant to see your chat history here'}
+                {searchTerm ? 'Try adjusting your search terms' : 'Start a conversation with AI Campus to see your chat history here'}
               </p>
               <button
                 onClick={handleNewChat}

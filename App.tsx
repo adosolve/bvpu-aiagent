@@ -31,12 +31,21 @@ import { UserRole } from './types.ts';
 type AppView = 'LOGIN' | 'FORGOT_PASSWORD' | 'DASHBOARD';
 
 const App: React.FC = () => {
-  const [view, setView] = useState<AppView>('LOGIN');
+  // Initialize state from localStorage if available
+  const [view, setView] = useState<AppView>(() => {
+    const savedView = localStorage.getItem('userView');
+    return (savedView as AppView) || 'LOGIN';
+  });
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [role, setRole] = useState<UserRole>(UserRole.CANDIDATE);
+  const [role, setRole] = useState<UserRole>(() => {
+    const savedRole = localStorage.getItem('userRole');
+    return (savedRole as UserRole) || UserRole.CANDIDATE;
+  });
   const [sidebarHovered, setSidebarHovered] = useState(false);
-  const [currentPath, setCurrentPath] = useState('/');
+  const [currentPath, setCurrentPath] = useState(() => {
+    return localStorage.getItem('currentPath') || '/';
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,19 +56,57 @@ const App: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Save state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('userView', view);
+  }, [view]);
+
+  useEffect(() => {
+    localStorage.setItem('userRole', role);
+  }, [role]);
+
+  useEffect(() => {
+    localStorage.setItem('currentPath', currentPath);
+  }, [currentPath]);
+
+  // Update document title based on role and view
+  useEffect(() => {
+    if (view === 'DASHBOARD') {
+      switch (role) {
+        case UserRole.CANDIDATE:
+          document.title = 'BVPU - AI Campus for Students';
+          break;
+        case UserRole.ADMIN_CLERK:
+          document.title = 'BVPU - AI Campus for Admin';
+          break;
+        case UserRole.SUPER_ADMIN:
+          document.title = 'BVPU - AI Campus for SuperAdmin';
+          break;
+        default:
+          document.title = 'BVPU - AI Campus';
+      }
+    } else {
+      document.title = 'BVPU - AI Campus';
+    }
+  }, [view, role]);
+
   const handleLogin = (selectedRole: UserRole) => {
     setRole(selectedRole);
     setView('DASHBOARD');
   };
 
   const handleLogout = () => {
+    // Clear localStorage on logout
+    localStorage.removeItem('userView');
+    localStorage.removeItem('userRole');
+    localStorage.removeItem('currentPath');
     setView('LOGIN');
     setCurrentPath('/');
   };
 
   const getPageTitle = (path: string) => {
     switch (path) {
-      case '/': return 'IMED AI Agent';
+      case '/': return 'IMED AI Campus';
       case '/exams': return role === UserRole.CANDIDATE ? 'Convocation & Degree Services' : 'Examination Management';
       case '/helpdesk': return 'Raise New Query';
       case '/chat-history': return 'Chat History';

@@ -41,7 +41,7 @@ const LoginPage: React.FC<LoginProps> = ({ onLogin, onForgotPassword }) => {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Login Card - Center-Left */}
         <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl">
-          <div className="bg-white/98 backdrop-blur-sm border border-stone-200/60 rounded-[2rem] shadow-[0_20px_60px_rgba(93,64,55,0.08)] overflow-hidden" style={{ width: '440px' }}>
+          <div className="bg-white/98 backdrop-blur-sm border border-stone-200/60 rounded-[2rem] shadow-[0_20px_60px_rgba(93,64,55,0.08)] overflow-visible" style={{ width: '440px', minHeight: '600px' }}>
             <div className="p-6 text-center border-b border-stone-50">
               <div className="flex flex-col items-center">
                 <img src="/Public/IMED LOGO.jpg" alt="University Logo" className="w-16 h-16 rounded-2xl object-contain shadow-lg mb-1" />
@@ -49,29 +49,45 @@ const LoginPage: React.FC<LoginProps> = ({ onLogin, onForgotPassword }) => {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-6 space-y-4">
+            <form onSubmit={handleSubmit} className="p-6 space-y-4 pb-8">
               <div className="space-y-3">
-                {/* Role Selection Dropdown */}
+                {/* Role Selection Tabs */}
                 <div>
-                  <label className="block text-[9px] font-semibold text-stone-400 uppercase tracking-[0.2em] mb-2">Select Role</label>
-                  <div className="relative">
-                    <select 
-                      required
-                      value={role}
-                      onChange={(e) => setRole(e.target.value as UserRole)}
-                      className="w-full px-4 py-3 rounded-xl border border-stone-200 bg-stone-50/50 focus:bg-white focus:border-[#5D4037] focus:ring-1 focus:ring-[#5D4037] outline-none transition-all text-sm text-stone-800 font-medium appearance-none cursor-pointer pr-10 dropdown-custom"
-                      style={{
-                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                        backgroundPosition: 'right 0.75rem center',
-                        backgroundRepeat: 'no-repeat',
-                        backgroundSize: '1.5em 1.5em'
-                      }}
+                  <label className="block text-[9px] font-semibold text-stone-400 uppercase tracking-[0.2em] mb-3">Select Role</label>
+                  <div className="flex bg-stone-50 rounded-xl p-1 border border-stone-200">
+                    <button
+                      type="button"
+                      onClick={() => setRole(UserRole.CANDIDATE)}
+                      className={`flex-1 px-3 py-2.5 text-xs font-semibold rounded-lg transition-all ${
+                        role === UserRole.CANDIDATE
+                          ? 'bg-white text-[#5D4037] shadow-sm border border-stone-200'
+                          : 'text-stone-500 hover:text-stone-700'
+                      }`}
                     >
-                      <option value="" disabled>Choose your role</option>
-                      <option value={UserRole.CANDIDATE}>Student</option>
-                      <option value={UserRole.ADMIN_CLERK}>Admin (Examination Clerk)</option>
-                      <option value={UserRole.SUPER_ADMIN}>Super Admin</option>
-                    </select>
+                      Student
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setRole(UserRole.ADMIN_CLERK)}
+                      className={`flex-1 px-3 py-2.5 text-xs font-semibold rounded-lg transition-all ${
+                        role === UserRole.ADMIN_CLERK
+                          ? 'bg-white text-[#5D4037] shadow-sm border border-stone-200'
+                          : 'text-stone-500 hover:text-stone-700'
+                      }`}
+                    >
+                      Admin
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setRole(UserRole.SUPER_ADMIN)}
+                      className={`flex-1 px-3 py-2.5 text-xs font-semibold rounded-lg transition-all ${
+                        role === UserRole.SUPER_ADMIN
+                          ? 'bg-white text-[#5D4037] shadow-sm border border-stone-200'
+                          : 'text-stone-500 hover:text-stone-700'
+                      }`}
+                    >
+                      Super Admin
+                    </button>
                   </div>
                 </div>
 
@@ -129,15 +145,16 @@ const LoginPage: React.FC<LoginProps> = ({ onLogin, onForgotPassword }) => {
 
               <button
                 type="submit"
-                className="w-full py-4 mt-6 bg-gradient-to-r from-[#5D4037] to-[#4E342E] text-white rounded-2xl font-semibold text-sm uppercase tracking-[0.15em] shadow-2xl shadow-[#5D4037]/30 hover:shadow-[#5D4037]/40 hover:from-[#4E342E] hover:to-[#3E2723] transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 active:scale-[0.98]"
+                disabled={!identifier || !password || !role}
+                className="w-full py-4 mt-8 bg-black text-white rounded-2xl font-semibold text-sm uppercase tracking-[0.15em] shadow-2xl shadow-black/30 hover:shadow-black/40 hover:bg-gray-800 transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-lg"
               >
-                Login to Dashboard
+                Login
               </button>
             </form>
 
-            <div className="px-6 pb-4 text-center">
-              <p className="text-[8px] text-stone-300/60 uppercase tracking-[0.3em] font-semibold">
-                University Secure Gateway • Established 1924
+            <div className="px-6 pb-6 text-center">
+              <p className="text-[8px] text-black uppercase tracking-[0.3em] font-semibold">
+                University Secure Gateway • BVPU Established 1924
               </p>
             </div>
           </div>
