@@ -16,7 +16,11 @@ export default defineConfig(({ mode }) => {
       },
       resolve: {
         alias: {
-          '@': path.resolve(__dirname, '.'),
+          '@': path.resolve(__dirname, './src'),
+          '@shared': path.resolve(__dirname, './src/shared'),
+          '@student': path.resolve(__dirname, './src/features/student'),
+          '@admin': path.resolve(__dirname, './src/features/admin'),
+          '@superadmin': path.resolve(__dirname, './src/features/superadmin'),
         }
       }
     };

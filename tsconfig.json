@@ -19,9 +19,11 @@
     "allowJs": true,
     "jsx": "react-jsx",
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./src/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@student/*": ["./src/features/student/*"],
+      "@admin/*": ["./src/features/admin/*"],
+      "@superadmin/*": ["./src/features/superadmin/*"]
     },
     "allowImportingTsExtensions": true,
     "noEmit": true
