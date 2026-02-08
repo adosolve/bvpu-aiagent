@@ -6,6 +6,7 @@ import AdminExamForms from './pages/AdminExamForms';
 import AdminGradeCards from './pages/AdminGradeCards';
 import AdminResults from './pages/AdminResults';
 import PublishNotification from './pages/PublishNotification';
+import Escalations from './pages/Escalations';
 import ProfileSettings from '../../shared/pages/ProfileSettings';
 import Notifications from '../../shared/pages/Notifications';
 import ChatHistory from '../../shared/pages/ChatHistory';
@@ -51,6 +52,8 @@ const AdminRouter: React.FC<AdminRouterProps> = ({ onLogout, isMobile }) => {
       case '/':
       case '/tickets':
         return <AdminDashboard />;
+      case '/excelations':
+        return <Escalations />;
       case '/exams/forms':
         return <AdminExamForms />;
       case '/exams/grades':
