@@ -7,6 +7,8 @@ import AdminGradeCards from './pages/AdminGradeCards';
 import AdminResults from './pages/AdminResults';
 import PublishNotification from './pages/PublishNotification';
 import Escalations from './pages/Escalations';
+import NotificationList from './pages/NotificationList';
+import GenerateNotification from './pages/GenerateNotification';
 import ProfileSettings from '../../shared/pages/ProfileSettings';
 import Notifications from '../../shared/pages/Notifications';
 import ChatHistory from '../../shared/pages/ChatHistory';
@@ -38,7 +40,7 @@ const AdminRouter: React.FC<AdminRouterProps> = ({ onLogout, isMobile }) => {
       case '/department/accounts': return 'Department - Accounts';
       case '/department/library': return 'Department - Library';
       case '/department/admission': return 'Department - Admission';
-      case '/communication/notification': return 'Communication Hub - Notification';
+      case '/communication/notification': return 'Communication Hub - Notifications';
       case '/communication/generate': return 'Communication Hub - Generate Notification';
       case '/profile': return 'Profile';
       default: return 'Dashboard';
@@ -54,6 +56,10 @@ const AdminRouter: React.FC<AdminRouterProps> = ({ onLogout, isMobile }) => {
         return <AdminDashboard />;
       case '/excelations':
         return <Escalations />;
+      case '/communication/notification':
+        return <NotificationList />;
+      case '/communication/generate':
+        return <GenerateNotification />;
       case '/exams/forms':
         return <AdminExamForms />;
       case '/exams/grades':
