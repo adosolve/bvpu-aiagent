@@ -10,6 +10,7 @@ import Escalations from './pages/Escalations';
 import NotificationList from './pages/NotificationList';
 import GenerateNotification from './pages/GenerateNotification';
 import QueryPipeline from './pages/QueryPipeline';
+import ExaminationDept from './pages/ExaminationDept';
 import ProfileSettings from '../../shared/pages/ProfileSettings';
 import Notifications from '../../shared/pages/Notifications';
 import ChatHistory from '../../shared/pages/ChatHistory';
@@ -59,6 +60,8 @@ const AdminRouter: React.FC<AdminRouterProps> = ({ onLogout, isMobile }) => {
         return <QueryPipeline />;
       case '/excelations':
         return <Escalations />;
+      case '/department/examination':
+        return <ExaminationDept />;
       case '/communication/notification':
         return <NotificationList />;
       case '/communication/generate':
