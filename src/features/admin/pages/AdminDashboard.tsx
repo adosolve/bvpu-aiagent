@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import AdminQueryDetail from './AdminQueryDetail.tsx';
 import AnalyticsCards from '../components/AnalyticsCards';
 import RecentQueriesTable from '../components/RecentQueriesTable';
+import StaffManagementTable from '../components/StaffManagementTable';
 
 const AdminDashboard: React.FC = () => {
   const [selectedQuery, setSelectedQuery] = useState<any>(null);
@@ -23,6 +24,9 @@ const AdminDashboard: React.FC = () => {
 
       {/* Recent Queries Table */}
       <RecentQueriesTable />
+
+      {/* Staff Management Table */}
+      <StaffManagementTable />
     </div>
   );
 };
