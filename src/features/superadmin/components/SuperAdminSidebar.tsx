@@ -44,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, currentRole, onNavigate, acti
   const filteredItems = sidebarItems.filter(item => item.roles.includes(currentRole));
   const [isHovered, setIsHovered] = useState(false);
   const [examinationExpanded, setExaminationExpanded] = useState(false);
-  const shouldExpand = isOpen || isHovered;
+  const shouldExpand = isHovered;
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -54,12 +54,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, currentRole, onNavigate, acti
   const handleMouseLeave = () => {
     setIsHovered(false);
     onHoverChange?.(false);
+    setExaminationExpanded(false);
   };
 
   return (
     <aside 
       className={`sidebar-transition h-screen fixed left-0 top-0 bg-white border-r border-stone-200 z-40 overflow-hidden flex flex-col ${
-        shouldExpand ? 'w-64 translate-x-0' : 'w-20 lg:translate-x-0 -translate-x-full lg:w-20'
+        shouldExpand ? 'w-64' : 'w-20'
       }`}
       style={{ borderColor: COLORS.border }}
       onMouseEnter={handleMouseEnter}
@@ -81,14 +82,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, currentRole, onNavigate, acti
             </div>
           )}
         </div>
-        {shouldExpand && (
-          <button 
-            onClick={onClose}
-            className="lg:hidden p-2 text-stone-400 hover:text-stone-600 rounded-lg absolute top-2 right-2"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          </button>
-        )}
       </div>
 
       <nav className="flex-1 py-6 px-4 space-y-2 overflow-y-auto custom-scrollbar">

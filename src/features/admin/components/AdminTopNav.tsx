@@ -38,16 +38,6 @@ const TopNav: React.FC<TopNavProps> = ({
   return (
     <header className="h-16 fixed top-0 bg-white/80 backdrop-blur-md border-b border-stone-100 z-50 flex items-center justify-between px-4 md:px-8 transition-all duration-300" style={{ left: `${sidebarWidth}px`, right: '0' }}>
       <div className="flex items-center gap-3 md:gap-5">
-        {/* Hamburger Menu Button */}
-        {onToggleSidebar && (
-          <button
-            onClick={onToggleSidebar}
-            className="p-2 text-stone-600 hover:text-[#5D4037] hover:bg-stone-50 rounded-lg transition-all"
-            aria-label="Toggle sidebar"
-          >
-            <Icons.Menu />
-          </button>
-        )}
         <div className="flex items-center gap-3">
           <h2 className="text-stone-900 text-sm font-semibold md:text-lg tracking-tight truncate max-w-[140px] sm:max-w-[240px] md:max-w-none">
             {pageTitle}

@@ -13,26 +13,44 @@ interface SidebarProps {
 }
 
 const sidebarItems: SidebarItem[] = [
-  { label: 'Start New Chat', icon: <Icons.Dashboard />, path: '/', roles: [UserRole.ADMIN_CLERK] },
-  { label: 'Chat History', icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M8 10h.01"></path><path d="M12 10h.01"></path><path d="M16 10h.01"></path></svg>, path: '/chat-history', roles: [UserRole.ADMIN_CLERK] },
-  { label: 'Query Management', icon: <Icons.Tickets />, path: '/tickets', roles: [UserRole.ADMIN_CLERK] },
+  { label: 'Dashboard', icon: <Icons.Dashboard />, path: '/', roles: [UserRole.ADMIN_CLERK] },
+  { label: 'Query Pipeline', icon: <Icons.Tickets />, path: '/query-pipeline', roles: [UserRole.ADMIN_CLERK] },
+  { label: 'Excelations', icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>, path: '/excelations', roles: [UserRole.ADMIN_CLERK] },
 ];
 
-const examinationSubItems = [
+const departmentSubItems = [
   { 
-    label: 'Exam Forms', 
+    label: 'Examination', 
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>, 
-    path: '/exams/forms' 
+    path: '/department/examination' 
   },
   { 
-    label: 'Grade Cards', 
-    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>, 
-    path: '/exams/grades' 
+    label: 'Accounts', 
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>, 
+    path: '/department/accounts' 
   },
   { 
-    label: 'Results', 
-    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>, 
-    path: '/exams/results' 
+    label: 'Library', 
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>, 
+    path: '/department/library' 
+  },
+  { 
+    label: 'Admission', 
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>, 
+    path: '/department/admission' 
+  },
+];
+
+const communicationSubItems = [
+  { 
+    label: 'Notification', 
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>, 
+    path: '/communication/notification' 
+  },
+  { 
+    label: 'Generate Notification', 
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>, 
+    path: '/communication/generate' 
   },
 ];
 
@@ -41,8 +59,9 @@ const examinationSubItems = [
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, currentRole, onNavigate, activePath, onClose, onHoverChange }) => {
   const filteredItems = sidebarItems.filter(item => item.roles.includes(currentRole));
   const [isHovered, setIsHovered] = useState(false);
-  const [examinationExpanded, setExaminationExpanded] = useState(false);
-  const shouldExpand = isOpen || isHovered;
+  const [departmentExpanded, setDepartmentExpanded] = useState(false);
+  const [communicationExpanded, setCommunicationExpanded] = useState(false);
+  const shouldExpand = isHovered;
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -52,12 +71,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, currentRole, onNavigate, acti
   const handleMouseLeave = () => {
     setIsHovered(false);
     onHoverChange?.(false);
+    setDepartmentExpanded(false);
+    setCommunicationExpanded(false);
   };
 
   return (
     <aside 
       className={`sidebar-transition h-screen fixed left-0 top-0 bg-white border-r border-stone-200 z-40 overflow-hidden flex flex-col ${
-        shouldExpand ? 'w-64 translate-x-0' : 'w-20 lg:translate-x-0 -translate-x-full lg:w-20'
+        shouldExpand ? 'w-64' : 'w-20'
       }`}
       style={{ borderColor: COLORS.border }}
       onMouseEnter={handleMouseEnter}
@@ -79,14 +100,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, currentRole, onNavigate, acti
             </div>
           )}
         </div>
-        {shouldExpand && (
-          <button 
-            onClick={onClose}
-            className="lg:hidden p-2 text-stone-400 hover:text-stone-600 rounded-lg absolute top-2 right-2"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          </button>
-        )}
       </div>
 
       <nav className="flex-1 py-6 px-4 space-y-2 overflow-y-auto custom-scrollbar">
@@ -116,22 +129,22 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, currentRole, onNavigate, acti
           </button>
         ))}
         
-        {/* Examination Expandable Section */}
+        {/* Department Expandable Section */}
         <div className="space-y-1">
           <button
-            onClick={() => setExaminationExpanded(!examinationExpanded)}
+            onClick={() => setDepartmentExpanded(!departmentExpanded)}
             className="w-full flex items-center gap-4 px-3 py-2.5 rounded-lg transition-all group relative text-stone-500 hover:bg-stone-50 hover:text-stone-800"
           >
             <div className="flex items-center justify-center w-5 h-5 text-stone-400 group-hover:text-stone-600">
-              <Icons.Exams />
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
             </div>
             {shouldExpand && (
               <>
                 <span className="text-sm font-medium whitespace-nowrap animate-in fade-in slide-in-from-left-2 duration-300 flex-1 text-left">
-                  Examination
+                  Department
                 </span>
                 <svg 
-                  className={`w-4 h-4 transition-transform duration-200 ${examinationExpanded ? 'rotate-180' : ''}`}
+                  className={`w-4 h-4 transition-transform duration-200 ${departmentExpanded ? 'rotate-180' : ''}`}
                   xmlns="http://www.w3.org/2000/svg" 
                   viewBox="0 0 24 24" 
                   fill="none" 
@@ -146,15 +159,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, currentRole, onNavigate, acti
             )}
             {!shouldExpand && (
               <div className="absolute left-14 bg-stone-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap z-50">
-                Examination
+                Department
               </div>
             )}
           </button>
           
           {/* Sub-items */}
-          <div className={`overflow-hidden transition-all duration-200 ${examinationExpanded && shouldExpand ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className={`overflow-hidden transition-all duration-200 ${departmentExpanded && shouldExpand ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="ml-6 space-y-1 pt-1">
-              {examinationSubItems.map((subItem) => (
+              {departmentSubItems.map((subItem) => (
                 <button
                   key={subItem.path}
                   onClick={() => onNavigate(subItem.path)}
@@ -176,79 +189,92 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, currentRole, onNavigate, acti
           </div>
         </div>
 
-        {/* Raise New Query Button */}
+        {/* Communication Hub Expandable Section */}
+        <div className="space-y-1">
+          <button
+            onClick={() => setCommunicationExpanded(!communicationExpanded)}
+            className="w-full flex items-center gap-4 px-3 py-2.5 rounded-lg transition-all group relative text-stone-500 hover:bg-stone-50 hover:text-stone-800"
+          >
+            <div className="flex items-center justify-center w-5 h-5 text-stone-400 group-hover:text-stone-600">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            {shouldExpand && (
+              <>
+                <span className="text-sm font-medium whitespace-nowrap animate-in fade-in slide-in-from-left-2 duration-300 flex-1 text-left">
+                  Communication Hub
+                </span>
+                <svg 
+                  className={`w-4 h-4 transition-transform duration-200 ${communicationExpanded ? 'rotate-180' : ''}`}
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </>
+            )}
+            {!shouldExpand && (
+              <div className="absolute left-14 bg-stone-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap z-50">
+                Communication Hub
+              </div>
+            )}
+          </button>
+          
+          {/* Sub-items */}
+          <div className={`overflow-hidden transition-all duration-200 ${communicationExpanded && shouldExpand ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className="ml-6 space-y-1 pt-1">
+              {communicationSubItems.map((subItem) => (
+                <button
+                  key={subItem.path}
+                  onClick={() => onNavigate(subItem.path)}
+                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-all group text-xs ${
+                    activePath === subItem.path 
+                      ? 'bg-stone-50 text-[#5D4037]' 
+                      : 'text-stone-400 hover:bg-stone-50 hover:text-stone-600'
+                  }`}
+                >
+                  <div className={`flex items-center justify-center w-4 h-4 ${activePath === subItem.path ? 'text-[#5D4037]' : 'text-stone-300 group-hover:text-stone-500'}`}>
+                    {subItem.icon}
+                  </div>
+                  <span className="font-medium whitespace-nowrap">
+                    {subItem.label}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Profile Button */}
         <button
-          onClick={() => onNavigate('/helpdesk')}
+          onClick={() => onNavigate('/profile')}
           className={`w-full flex items-center gap-4 px-3 py-2.5 rounded-lg transition-all group relative ${
-            activePath === '/helpdesk' 
+            activePath === '/profile' 
               ? 'bg-stone-50 text-[#5D4037]' 
               : 'text-stone-500 hover:bg-stone-50 hover:text-stone-800'
           }`}
         >
-          <div className={`flex items-center justify-center w-5 h-5 ${activePath === '/helpdesk' ? 'text-[#5D4037]' : 'text-stone-400 group-hover:text-stone-600'}`}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line><circle cx="12" cy="12" r="10"></circle></svg>
+          <div className={`flex items-center justify-center w-5 h-5 ${activePath === '/profile' ? 'text-[#5D4037]' : 'text-stone-400 group-hover:text-stone-600'}`}>
+            <Icons.User />
           </div>
           {shouldExpand && (
             <span className="text-sm font-medium whitespace-nowrap animate-in fade-in slide-in-from-left-2 duration-300">
-              Raise New Query
+              Profile
             </span>
           )}
           {!shouldExpand && (
             <div className="absolute left-14 bg-stone-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap z-50">
-              Raise New Query
+              Profile
             </div>
           )}
         </button>
       </nav>
 
       <div className="absolute bottom-4 left-4 right-4 space-y-2">
-        {/* Notifications Button */}
-        <button 
-          onClick={() => onNavigate('/notifications')}
-          className={`w-full flex items-center gap-4 px-3 py-2.5 rounded-lg transition-all group relative ${
-            activePath === '/notifications' 
-              ? 'bg-stone-50 text-[#5D4037]' 
-              : 'text-stone-500 hover:bg-stone-50 hover:text-stone-800'
-          }`}
-        >
-          <div className={`flex items-center justify-center w-5 h-5 ${activePath === '/notifications' ? 'text-[#5D4037]' : 'text-stone-400 group-hover:text-stone-600'}`}>
-            <Icons.Bell />
-          </div>
-          {shouldExpand && (
-            <span className="text-sm font-medium whitespace-nowrap animate-in fade-in slide-in-from-left-2 duration-300">
-              Notifications
-            </span>
-          )}
-          {!shouldExpand && (
-            <div className="absolute left-14 bg-stone-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap z-50">
-              Notifications
-            </div>
-          )}
-        </button>
-
-        {/* Settings Button */}
-        <button 
-          onClick={() => onNavigate('/settings')}
-          className={`w-full flex items-center gap-4 px-3 py-2.5 rounded-lg transition-all group relative ${
-            activePath === '/settings' 
-              ? 'bg-stone-50 text-[#5D4037]' 
-              : 'text-stone-500 hover:bg-stone-50 hover:text-stone-800'
-          }`}
-        >
-          <div className={`flex items-center justify-center w-5 h-5 ${activePath === '/settings' ? 'text-[#5D4037]' : 'text-stone-400 group-hover:text-stone-600'}`}>
-            <Icons.Settings />
-          </div>
-          {shouldExpand && (
-            <span className="text-sm font-medium whitespace-nowrap animate-in fade-in slide-in-from-left-2 duration-300">
-              Settings
-            </span>
-          )}
-          {!shouldExpand && (
-            <div className="absolute left-14 bg-stone-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap z-50">
-              Settings
-            </div>
-          )}
-        </button>
       </div>
     </aside>
   );

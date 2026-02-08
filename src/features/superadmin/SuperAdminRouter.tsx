@@ -19,7 +19,7 @@ interface SuperAdminRouterProps {
 }
 
 const SuperAdminRouter: React.FC<SuperAdminRouterProps> = ({ onLogout, isMobile }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(!isMobile); // Open by default on desktop
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarHovered, setSidebarHovered] = useState(false);
   const [currentPath, setCurrentPath] = useState(() => {
     return localStorage.getItem('superAdminCurrentPath') || '/';
@@ -48,7 +48,7 @@ const SuperAdminRouter: React.FC<SuperAdminRouterProps> = ({ onLogout, isMobile 
     }
   };
 
-  const sidebarWidth = isMobile ? 0 : (sidebarOpen || sidebarHovered ? 256 : 80);
+  const sidebarWidth = sidebarHovered ? 256 : 80;
 
   const renderContent = () => {
     switch (currentPath) {
@@ -92,19 +92,11 @@ const SuperAdminRouter: React.FC<SuperAdminRouterProps> = ({ onLogout, isMobile 
 
   return (
     <div className="min-h-screen bg-white flex overflow-hidden relative">
-      {isMobile && sidebarOpen && (
-        <div 
-          className="fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-40 transition-opacity animate-in fade-in duration-300"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
-
       <SuperAdminSidebar 
         isOpen={sidebarOpen} 
         currentRole={UserRole.SUPER_ADMIN} 
         onNavigate={(path) => {
           setCurrentPath(path);
-          if (isMobile) setSidebarOpen(false);
         }} 
         activePath={currentPath}
         onClose={() => setSidebarOpen(false)}
@@ -119,7 +111,6 @@ const SuperAdminRouter: React.FC<SuperAdminRouterProps> = ({ onLogout, isMobile 
           onOpenNotifications={() => setCurrentPath('/notifications')}
           onOpenProfile={() => setCurrentPath('/profile')}
           sidebarWidth={sidebarWidth}
-          onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
         />
         
         <main className="flex-1 overflow-y-auto pt-16">
