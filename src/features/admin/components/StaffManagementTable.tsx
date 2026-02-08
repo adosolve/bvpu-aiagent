@@ -106,6 +106,7 @@ const MOCK_STAFF: StaffRecord[] = [
 const StaffManagementTable: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const [formData, setFormData] = useState({
     staffName: '',
     staffId: '',
@@ -116,10 +117,26 @@ const StaffManagementTable: React.FC = () => {
   });
   const recordsPerPage = 5;
 
-  const totalPages = Math.ceil(MOCK_STAFF.length / recordsPerPage);
+  // Filter records based on search query
+  const filteredRecords = MOCK_STAFF.filter((record) => {
+    const searchLower = searchQuery.toLowerCase();
+    return (
+      record.staffName.toLowerCase().includes(searchLower) ||
+      record.staffId.toLowerCase().includes(searchLower) ||
+      record.role.toLowerCase().includes(searchLower) ||
+      record.departmentName.toLowerCase().includes(searchLower)
+    );
+  });
+
+  const totalPages = Math.ceil(filteredRecords.length / recordsPerPage);
   const startIndex = (currentPage - 1) * recordsPerPage;
   const endIndex = startIndex + recordsPerPage;
-  const currentRecords = MOCK_STAFF.slice(startIndex, endIndex);
+  const currentRecords = filteredRecords.slice(startIndex, endIndex);
+
+  // Reset to page 1 when search query changes
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [searchQuery]);
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
@@ -167,16 +184,43 @@ const StaffManagementTable: React.FC = () => {
           </div>
           <h2 className="text-2xl font-semibold text-stone-900">Staff Management</h2>
         </div>
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="flex items-center gap-2 px-6 py-3 bg-[#5D4037] text-white rounded-xl hover:bg-[#4A332C] transition-all shadow-md hover:shadow-lg font-semibold text-sm"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-          </svg>
-          Add Staff
-        </button>
+        <div className="flex items-center gap-4">
+          {/* Search Bar */}
+          <div className="relative">
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search staff..."
+              className="w-80 pl-10 pr-4 py-3 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#5D4037] focus:border-transparent transition-all"
+            />
+            <svg 
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 text-stone-400 pointer-events-none" 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="18" 
+              height="18" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.35-4.35"></path>
+            </svg>
+          </div>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center gap-2 px-6 py-3 bg-[#5D4037] text-white rounded-xl hover:bg-[#4A332C] transition-all shadow-md hover:shadow-lg font-semibold text-sm"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Add Staff
+          </button>
+        </div>
       </div>
 
       {/* Table */}
@@ -230,15 +274,24 @@ const StaffManagementTable: React.FC = () => {
               ))}
             </tbody>
           </table>
+          {currentRecords.length === 0 && (
+            <div className="p-12 text-center">
+              <p className="text-stone-400 text-sm">
+                {searchQuery ? `No staff members found matching "${searchQuery}"` : 'No staff members found'}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Pagination */}
-        <div className="px-6 py-4 border-t border-stone-200 flex items-center justify-between">
-          <div className="text-xs text-stone-500">
-            Showing <span className="font-semibold text-stone-700">{startIndex + 1}</span> to{' '}
-            <span className="font-semibold text-stone-700">{Math.min(endIndex, MOCK_STAFF.length)}</span> of{' '}
-            <span className="font-semibold text-stone-700">{MOCK_STAFF.length}</span> staff members
-          </div>
+        {filteredRecords.length > 0 && (
+          <div className="px-6 py-4 border-t border-stone-200 flex items-center justify-between">
+            <div className="text-xs text-stone-500">
+              Showing <span className="font-semibold text-stone-700">{startIndex + 1}</span> to{' '}
+              <span className="font-semibold text-stone-700">{Math.min(endIndex, filteredRecords.length)}</span> of{' '}
+              <span className="font-semibold text-stone-700">{filteredRecords.length}</span> staff members
+              {searchQuery && <span className="ml-1">(filtered from {MOCK_STAFF.length} total)</span>}
+            </div>
           
           <div className="flex items-center gap-2">
             <button
@@ -282,6 +335,7 @@ const StaffManagementTable: React.FC = () => {
             </button>
           </div>
         </div>
+        )}
       </div>
 
       {/* Add Staff Modal */}
