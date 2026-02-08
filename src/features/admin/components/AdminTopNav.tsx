@@ -39,7 +39,7 @@ const TopNav: React.FC<TopNavProps> = ({
     <header className="h-16 fixed top-0 bg-white/80 backdrop-blur-md border-b border-stone-100 z-50 flex items-center justify-between px-4 md:px-8 transition-all duration-300" style={{ left: `${sidebarWidth}px`, right: '0' }}>
       <div className="flex items-center gap-3 md:gap-5">
         <div className="flex items-center gap-3">
-          <h2 className="text-stone-900 text-sm font-semibold md:text-lg tracking-tight truncate max-w-[140px] sm:max-w-[240px] md:max-w-none">
+          <h2 className="text-stone-900 text-sm font-semibold md:text-lg tracking-tight">
             {pageTitle}
           </h2>
           <span className="px-2 py-0.5 bg-[#5D4037]/10 text-[#5D4037] text-[9px] font-semibold uppercase tracking-[0.2em] rounded border border-[#5D4037]/20">

@@ -30,17 +30,17 @@ const AdminRouter: React.FC<AdminRouterProps> = ({ onLogout, isMobile }) => {
 
   const getPageTitle = (path: string) => {
     switch (path) {
-      case '/': return 'IMED AI Campus';
-      case '/exams': return 'Examination Management';
-      case '/exams/forms': return 'Exam Forms Management';
-      case '/exams/grades': return 'Grade Cards Management';
-      case '/exams/results': return 'Results Management';
-      case '/tickets': return 'Query Management';
-      case '/chat-history': return 'Chat History';
-      case '/profile': return 'My Profile & Settings';
-      case '/notifications': return 'Activity & System Notifications';
-      case '/notifications/publish': return 'Publish Notification';
-      default: return 'IMED AI Campus';
+      case '/': return 'Dashboard';
+      case '/query-pipeline': return 'Query Pipeline';
+      case '/excelations': return 'Excelations';
+      case '/department/examination': return 'Department - Examination';
+      case '/department/accounts': return 'Department - Accounts';
+      case '/department/library': return 'Department - Library';
+      case '/department/admission': return 'Department - Admission';
+      case '/communication/notification': return 'Communication Hub - Notification';
+      case '/communication/generate': return 'Communication Hub - Generate Notification';
+      case '/profile': return 'Profile';
+      default: return 'Dashboard';
     }
   };
 

@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import AdminQueryDetail from './AdminQueryDetail.tsx';
+import AnalyticsCards from '../components/AnalyticsCards';
 
 interface AdminQuery {
   id: string;
@@ -22,13 +23,6 @@ const MOCK_ADMIN_QUERIES: AdminQuery[] = [
 const AdminDashboard: React.FC = () => {
   const [filter, setFilter] = useState<string>('All');
   const [selectedQuery, setSelectedQuery] = useState<AdminQuery | null>(null);
-
-  const stats = [
-    { label: 'Assigned', value: '12', icon: '📋' },
-    { label: 'Pending Review', value: '08', icon: '⏳' },
-    { label: 'On Hold', value: '04', icon: '🛑' },
-    { label: 'Resolved Today', value: '15', icon: '✅' },
-  ];
 
   const filteredQueries = filter === 'All' 
     ? MOCK_ADMIN_QUERIES 
@@ -55,28 +49,8 @@ const AdminDashboard: React.FC = () => {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
-      {/* Top Header */}
-      <header>
-        <div className="flex items-center gap-2 text-[10px] font-semibold text-[#5D4037] mb-2 uppercase tracking-[0.2em]">
-          <span className="w-6 h-[2px] bg-[#5D4037]"></span>
-          Staff Department Portal
-        </div>
-        <h1 className="text-4xl font-semibold text-stone-900 leading-tight">Clerk Operations</h1>
-      </header>
-
-      {/* Metrics Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map((stat, i) => (
-          <div key={i} className="bg-white border border-stone-200 p-6 rounded-2xl shadow-sm">
-            <div className="flex justify-between items-start mb-4">
-              <span className="text-xl">{stat.icon}</span>
-              <span className="text-xs font-semibold text-stone-400 uppercase tracking-widest">Active</span>
-            </div>
-            <div className="text-3xl font-semibold text-stone-800 mb-1">{stat.value}</div>
-            <p className="text-xs font-semibold text-stone-500 uppercase tracking-wider">{stat.label}</p>
-          </div>
-        ))}
-      </div>
+      {/* Analytics Overview */}
+      <AnalyticsCards />
 
       {/* Query List Section */}
       <section className="bg-white border border-stone-200 rounded-3xl shadow-sm overflow-hidden">
