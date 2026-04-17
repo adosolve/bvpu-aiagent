@@ -4,6 +4,7 @@ import ForgotPasswordPage from './shared/pages/ForgotPassword';
 import StudentRouter from './features/student/StudentRouter';
 import AdminRouter from './features/admin/AdminRouter';
 import SuperAdminRouter from './features/superadmin/SuperAdminRouter';
+import DeviceGuard from './shared/components/DeviceGuard';
 import { UserRole } from './shared/types/types';
 
 type AppView = 'LOGIN' | 'FORGOT_PASSWORD' | 'DASHBOARD';
@@ -89,11 +90,19 @@ const App: React.FC = () => {
 
   switch (view) {
     case 'LOGIN':
-      return <LoginPage onLogin={handleLogin} onForgotPassword={() => setView('FORGOT_PASSWORD')} />;
+      return (
+        <DeviceGuard>
+          <LoginPage onLogin={handleLogin} onForgotPassword={() => setView('FORGOT_PASSWORD')} />
+        </DeviceGuard>
+      );
     case 'FORGOT_PASSWORD':
-      return <ForgotPasswordPage onBack={() => setView('LOGIN')} />;
+      return (
+        <DeviceGuard>
+          <ForgotPasswordPage onBack={() => setView('LOGIN')} />
+        </DeviceGuard>
+      );
     case 'DASHBOARD':
-      return renderDashboard();
+      return <DeviceGuard>{renderDashboard()}</DeviceGuard>;
     default:
       return null;
   }
