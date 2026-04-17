@@ -25,8 +25,8 @@ const MVPStatus: React.FC = () => {
           <span className="text-[11px] font-semibold text-green-700 uppercase tracking-[0.3em]">PROTOTYPE PHASE COMPLETE</span>
         </div>
         <div className="flex flex-col items-center mb-8">
-          <img src="/Public/IMED LOGO.jpg" alt="University Logo" className="w-20 h-20 rounded-2xl object-contain shadow-lg mb-3" />
-          <img src="/Public/College Title.png" alt="College Title" className="h-20 md:h-24 w-auto object-contain opacity-90 mb-2" />
+          <img src="/IMED LOGO.jpg" alt="University Logo" className="w-20 h-20 rounded-2xl object-contain shadow-lg mb-3" />
+          <img src="/College Title.png" alt="College Title" className="h-20 md:h-24 w-auto object-contain opacity-90 mb-2" />
           <span className="text-4xl md:text-5xl font-semibold text-stone-900 tracking-tight">AI</span>
         </div>
         <h1 className="text-6xl md:text-7xl font-semibold text-stone-900 tracking-tight leading-none mb-8">

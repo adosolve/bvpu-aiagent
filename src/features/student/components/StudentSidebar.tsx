@@ -67,12 +67,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, isMobile, currentRole, onNavi
       <div className="h-16 flex items-center justify-center px-4 border-b border-stone-100 shrink-0 relative">
         <div className="flex items-center justify-center w-full overflow-hidden">
           {!shouldExpand ? (
-            <img src="/Public/IMED LOGO.jpg" alt="University Logo" className="w-8 h-8 rounded object-contain" />
+            <img src="/IMED LOGO.jpg" alt="University Logo" className="w-8 h-8 rounded object-contain" />
           ) : (
             <div className="flex flex-col items-center">
               <div className="flex items-center gap-3 mb-1">
-                <img src="/Public/IMED LOGO.jpg" alt="University Logo" className="w-8 h-8 rounded object-contain" />
-                <img src="/Public/College Title.png" alt="College Title" className="h-12 w-auto object-contain opacity-90 animate-in fade-in duration-200" />
+                <img src="/IMED LOGO.jpg" alt="University Logo" className="w-8 h-8 rounded object-contain" />
+                <img src="/College Title.png" alt="College Title" className="h-12 w-auto object-contain opacity-90 animate-in fade-in duration-200" />
               </div>
               <span className="text-[10px] text-stone-400 font-medium uppercase tracking-widest animate-in fade-in duration-200 text-center">
                 University Agentic Help Desk

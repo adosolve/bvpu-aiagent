@@ -29,7 +29,7 @@ const LoginPage: React.FC<LoginProps> = ({ onLogin, onForgotPassword }) => {
       <div className="absolute inset-0">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
-          style={{ backgroundImage: "url('/Public/Login Page Illustration.png')" }}
+          style={{ backgroundImage: "url('/Login Page Illustration.png')" }}
         ></div>
         {/* White to Transparent Gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/20 to-transparent"></div>
@@ -44,8 +44,8 @@ const LoginPage: React.FC<LoginProps> = ({ onLogin, onForgotPassword }) => {
           <div className="bg-white/98 backdrop-blur-sm border border-stone-200/60 rounded-[2rem] shadow-[0_20px_60px_rgba(93,64,55,0.08)] overflow-visible" style={{ width: '440px', minHeight: '600px' }}>
             <div className="p-6 text-center border-b border-stone-50">
               <div className="flex flex-col items-center">
-                <img src="/Public/IMED LOGO.jpg" alt="University Logo" className="w-16 h-16 rounded-2xl object-contain shadow-lg mb-1" />
-                <img src="/Public/College Title.png" alt="College Title" className="max-w-[200px] h-auto object-contain opacity-90" />
+                <img src="/IMED LOGO.jpg" alt="University Logo" className="w-16 h-16 rounded-2xl object-contain shadow-lg mb-1" />
+                <img src="/College Title.png" alt="College Title" className="max-w-[200px] h-auto object-contain opacity-90" />
               </div>
             </div>
 
